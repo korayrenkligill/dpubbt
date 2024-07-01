@@ -2,7 +2,7 @@ import React, { lazy } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
 import MainPage from "./pages/Global/MainPage";
 import { Provider } from "jotai";
 import { bbtStore } from "./atom";
@@ -38,7 +38,14 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: <div>404 sayfasına hoş geldin kıııı</div>,
+    element: (
+      <div>
+        <Link to="/">
+          Bu sayfa bulunamadı veya henüz yapım aşamasında lütfen tıklayarak ana
+          sayfaya dönünüz
+        </Link>
+      </div>
+    ),
   },
 ]);
 
