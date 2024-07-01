@@ -1,0 +1,202 @@
+@import "../../variables.scss";
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  text-wrap: nowrap;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  background-color: white;
+  z-index: 9999;
+  position: relative;
+  .mobile-menu {
+    flex: 1;
+    img {
+      max-width: 40px;
+    }
+    button {
+      display: none;
+      cursor: pointer;
+    }
+  }
+  .links {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    .link-item {
+      height: 100%;
+      .link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem;
+        height: 100%;
+        min-height: 60px;
+        padding: 0.5rem 1rem;
+        position: relative;
+        transition: color 0.3s;
+
+        &:hover {
+          color: var(--primaryColor);
+        }
+
+        &:not(.active):after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          width: 0;
+          height: 2px;
+          border-radius: 2px;
+          background-color: var(--primaryColor);
+          transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        &:hover::after {
+          width: 100%;
+          left: 0;
+        }
+
+        &:active::after {
+          width: 0;
+          left: 50%;
+        }
+      }
+      .link.active {
+        color: var(--primaryColor);
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 10%;
+          width: 80%;
+          height: 2px;
+          border-radius: 2px;
+          background-color: var(--primaryColor);
+          transition: width 0.3s ease, left 0.3s ease;
+        }
+      }
+    }
+  }
+  .auth {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    .login {
+      display: inline-block;
+      padding: 0 1rem;
+      color: var(--secondaryColor);
+      transition: color 0.3s;
+      &:hover {
+        color: black;
+      }
+    }
+    .register {
+      padding: 0.5rem 2rem;
+      border-radius: 0.5rem;
+      background-color: var(--secondaryColor);
+      color: white;
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: black;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $screen_lg) {
+  nav {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+    padding: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    transition: max-height 0.3s;
+    overflow: hidden;
+    .mobile-menu {
+      flex: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-height: calc(40px + 1rem);
+      padding: 0.5rem 1rem;
+      border-bottom: 1px solid rgb(231, 231, 231);
+      img {
+        max-width: 40px;
+      }
+      button {
+        width: 40px;
+        height: 40px;
+        font-size: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+    .links {
+      flex: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: start;
+      height: auto;
+      .link-item {
+        height: auto;
+        .link {
+          display: flex;
+          align-items: center;
+          justify-content: start;
+          gap: 0;
+          min-height: 50px;
+          padding: 0.5rem;
+          &:hover {
+            color: var(--primaryColor);
+          }
+
+          &:not(.active):after {
+            display: none;
+          }
+        }
+        .link.active {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
+    .auth {
+      flex: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-end;
+      margin-top: auto;
+      gap: 1rem;
+      padding: 0.5rem 1rem;
+      .login {
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        color: var(--secondaryColor);
+        transition: color 0.3s;
+        &:hover {
+          color: black;
+        }
+      }
+      .register {
+        padding: 1rem;
+      }
+    }
+  }
+  nav.open {
+    max-height: 100vh;
+  }
+  nav.close {
+    max-height: calc(40px + 1rem);
+  }
+}

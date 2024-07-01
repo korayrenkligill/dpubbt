@@ -1,0 +1,26 @@
+[
+  {
+    "title": "Ana Sayfa",
+    "link": "/"
+  },
+  {
+    "title": "Hakkımızda",
+    "link": "/about-us"
+  },
+  {
+    "title": "Etkinliklerimiz",
+    "link": "/our-events"
+  },
+  {
+    "title": "BBT Akademi",
+    "link": "/bbt-academy"
+  },
+  {
+    "title": "Blog",
+    "link": "/blog"
+  },
+  {
+    "title": "İletişim",
+    "link": "/contact-us"
+  }
+]
