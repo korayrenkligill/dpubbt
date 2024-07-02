@@ -26,9 +26,9 @@ const Event = ({ title, date, emoji, backgroundColor, status }: Props) => {
     >
       <div className="status">
         <p>
-          {status == "completed"
+          {status === "completed"
             ? "Tamamlandı"
-            : status == "waiting"
+            : status === "waiting"
             ? "Bekleniyor"
             : "İptal"}
         </p>
@@ -36,9 +36,9 @@ const Event = ({ title, date, emoji, backgroundColor, status }: Props) => {
           className="notification"
           style={{
             backgroundColor:
-              status == "completed"
+              status === "completed"
                 ? "rgb(72, 255, 0)"
-                : status == "waiting"
+                : status === "waiting"
                 ? "rgb(255, 217, 0)"
                 : "rgb(197, 0, 0)",
           }}

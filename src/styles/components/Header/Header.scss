@@ -59,6 +59,7 @@
     }
     .image {
       height: 100%;
+      user-select: none;
       img {
         height: 80%;
       }
@@ -71,6 +72,7 @@
     width: 100px;
     opacity: 0.05;
     z-index: -1;
+    user-select: none;
   }
   #cloudShape {
     position: absolute;
@@ -79,6 +81,7 @@
     width: 125px;
     opacity: 0.05;
     z-index: -1;
+    user-select: none;
   }
   #gameShape {
     position: absolute;
@@ -87,6 +90,7 @@
     width: 150px;
     opacity: 0.05;
     z-index: -1;
+    user-select: none;
   }
   #securityShape {
     position: absolute;
@@ -95,6 +99,7 @@
     width: 80px;
     opacity: 0.05;
     z-index: -1;
+    user-select: none;
   }
 }
 

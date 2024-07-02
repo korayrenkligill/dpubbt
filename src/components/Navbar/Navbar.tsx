@@ -37,12 +37,12 @@ const Navbar = (props: Props) => {
           {!isOpen ? <IoMenu /> : <IoClose />}
         </button>
       </div>
-      <ul className="links">
+      <ul className="links" onClick={changeNavbarState}>
         {NavigationItems.map((item, index) => (
           <NavigationItem item={item} key={index} />
         ))}
       </ul>
-      <div className="auth">
+      <div className="auth" onClick={changeNavbarState}>
         <Link to={"#"} className="login">
           Giriş Yap
         </Link>

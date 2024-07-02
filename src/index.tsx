@@ -7,6 +7,9 @@ import MainPage from "./pages/Global/MainPage";
 import { Provider } from "jotai";
 import { bbtStore } from "./atom";
 import OurEvents from "./pages/Global/OurEvents";
+import Test from "./pages/Global/Test";
+import Blogs from "./pages/Global/Blogs";
+import AboutUs from "./pages/Global/AboutUs";
 
 const Master = lazy(() => import("./pages/Global/Master"));
 const AdminMaster = lazy(() => import("./pages/Admin/AdminMaster"));
@@ -25,8 +28,20 @@ const router = createBrowserRouter([
             element: <MainPage />,
           },
           {
+            path: "/about-us",
+            element: <AboutUs />,
+          },
+          {
             path: "/our-events",
             element: <OurEvents />,
+          },
+          {
+            path: "/blog",
+            element: <Blogs />,
+          },
+          {
+            path: "/test",
+            element: <Test />,
           },
         ],
       },
