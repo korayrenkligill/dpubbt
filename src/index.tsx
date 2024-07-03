@@ -10,6 +10,11 @@ import OurEvents from "./pages/Global/OurEvents";
 import Test from "./pages/Global/Test";
 import Blogs from "./pages/Global/Blogs";
 import AboutUs from "./pages/Global/AboutUs";
+import BlogDetail from "./pages/Global/BlogDetail";
+import ContactUs from "./pages/Global/ContactUs";
+import BbtAcademy from "./pages/Global/BbtAcademy";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Master = lazy(() => import("./pages/Global/Master"));
 const AdminMaster = lazy(() => import("./pages/Admin/AdminMaster"));
@@ -36,8 +41,20 @@ const router = createBrowserRouter([
             element: <OurEvents />,
           },
           {
+            path: "/bbt-academy",
+            element: <BbtAcademy />,
+          },
+          {
             path: "/blog",
             element: <Blogs />,
+          },
+          {
+            path: "/blog/:key",
+            element: <BlogDetail />,
+          },
+          {
+            path: "/contact-us",
+            element: <ContactUs />,
           },
           {
             path: "/test",
@@ -53,14 +70,28 @@ const router = createBrowserRouter([
   },
   {
     path: "*",
-    element: (
-      <div>
-        <Link to="/">
-          Bu sayfa bulunamadı veya henüz yapım aşamasında lütfen tıklayarak ana
-          sayfaya dönünüz
-        </Link>
-      </div>
-    ),
+    element: <Master />,
+    children: [
+      {
+        path: "*",
+        element: (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+              padding: "1rem",
+            }}
+          >
+            <Link to="/">
+              Bu sayfa bulunamadı veya henüz yapım aşamasında lütfen tıklayarak
+              ana sayfaya dönünüz
+            </Link>
+          </div>
+        ),
+      },
+    ],
   },
 ]);
 

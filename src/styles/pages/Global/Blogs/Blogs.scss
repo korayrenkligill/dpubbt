@@ -43,69 +43,6 @@ section.blogs {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 1rem;
-      .blog {
-        display: grid;
-        grid-template-rows: 60% 40%;
-        border-radius: 1rem;
-        overflow: hidden;
-        aspect-ratio: 1;
-        background-color: rgba(0, 0, 0, 0.02);
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05),
-          0 2px 4px -2px rgb(0 0 0 / 0.05);
-        cursor: pointer;
-        .image {
-          overflow: hidden;
-          position: relative;
-          img.front {
-            object-fit: contain;
-            object-position: center;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.3s;
-          }
-          img.back {
-            position: absolute;
-            left: 0;
-            top: 0;
-            z-index: -1;
-            object-fit: fill;
-            object-position: center;
-            width: 100%;
-            height: 100%;
-            filter: blur(4px);
-          }
-        }
-        .texts {
-          height: min-content;
-          padding: 1rem;
-          span {
-            font-size: 0.75rem;
-            color: var(--primaryColor);
-          }
-          h1 {
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 1;
-            font-size: 1.3rem;
-          }
-          p {
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-box-orient: vertical;
-            -webkit-line-clamp: 3;
-            font-size: 0.9rem;
-            color: rgb(133, 133, 133);
-          }
-        }
-        &:hover {
-          .image {
-            img.front {
-              transform: scale(1.1);
-            }
-          }
-        }
-      }
     }
   }
   .filterbar-button {

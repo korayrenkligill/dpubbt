@@ -17,7 +17,7 @@ const Header = ({ message, title, description, buttonText, image }: Props) => {
           <span>{message}</span>
           <h1>{title}</h1>
           <p>{description}</p>
-          <button>{buttonText}</button>
+          {buttonText && <button>{buttonText}</button>}
         </div>
         <div className="image">
           <img src={image} alt="" />

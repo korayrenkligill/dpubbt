@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../../components/Header/Header";
-import AboutUs from "../../components/AboutUs/AboutUs";
 import AtomTest from "../../components/AtomTest/AtomTest";
 import AtomTest2 from "../../components/AtomTest/AtomTest2";
 
@@ -16,7 +15,6 @@ const MainPage = (props: Props) => {
         buttonText="İletişime Geç"
         image="https://i.ibb.co/PjxVCTW/main.png"
       />
-      {/* <AboutUs /> */}
       Test
     </main>
   );

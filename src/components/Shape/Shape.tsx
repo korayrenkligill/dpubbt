@@ -25,6 +25,7 @@ const Shape = ({
 }: Props) => {
   return (
     <div
+      className="customShape"
       style={{
         backgroundColor: backgroundColor,
         top: top ?? "auto",
@@ -40,6 +41,7 @@ const Shape = ({
         maskSize: "cover",
         maskRepeat: "no-repeat",
         position: "absolute",
+        zIndex: "-1",
       }}
     />
   );

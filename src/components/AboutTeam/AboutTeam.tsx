@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import "../../styles/components/AboutUs/AboutUs.scss";
+import "../../styles/components/AboutTeam/AboutTeam.scss";
 import { Link } from "react-router-dom";
 import { GoChevronRight } from "react-icons/go";
 import Shape from "../Shape/Shape";
 type Props = {};
 
-const AboutUs = (props: Props) => {
+const AboutTeam = (props: Props) => {
   const texts = [
     {
       title: "Bilgisayar ve Bilişim Topluluğu Nedir?",
@@ -52,7 +52,7 @@ const AboutUs = (props: Props) => {
   const [selectedTeam, setSelectedTeam] = useState<number>(0);
   return (
     <section className="about-us-comp">
-      <div className="about-us-comp-container">
+      <div className="about-us-comp-container custom-container">
         <div className="teams">
           <div
             className={`team team1 ${selectedTeam === 1 && "active"}`}
@@ -137,4 +137,4 @@ const AboutUs = (props: Props) => {
   );
 };
 
-export default AboutUs;
+export default AboutTeam;

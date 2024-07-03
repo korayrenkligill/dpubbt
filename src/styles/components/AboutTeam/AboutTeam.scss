@@ -1,9 +1,10 @@
+@import "../../variables.scss";
+
 .about-us-comp {
   position: relative;
-  margin: 1rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   .about-us-comp-container {
-    max-width: 900px;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -104,6 +105,42 @@
           }
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: $screen-lg) {
+  .about-us-comp {
+    margin-top: 5rem;
+    .about-us-comp-container {
+      flex-direction: column;
+      min-height: 300px;
+      .texts {
+        margin-top: 4rem;
+        text-align: center;
+        .main-title {
+          font-size: 0.85rem;
+        }
+        .title {
+          font-size: 1.3rem;
+        }
+        .description {
+          text-align: justify;
+        }
+        .more {
+          font-size: 0.85rem;
+        }
+      }
+      .teams {
+        margin: 0 0;
+        .team {
+          width: 80px;
+          height: 80px;
+        }
+      }
+    }
+    .customShape {
+      display: none;
     }
   }
 }
