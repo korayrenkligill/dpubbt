@@ -62,7 +62,7 @@ const AboutUs = (props: Props) => {
         breakpoint: 1024,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToScroll: 1,
           infinite: true,
           dots: true,
         },
@@ -71,8 +71,7 @@ const AboutUs = (props: Props) => {
         breakpoint: 800,
         settings: {
           slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
+          slidesToScroll: 1,
           nextArrow: <></>,
           prevArrow: <></>,
         },
@@ -89,7 +88,7 @@ const AboutUs = (props: Props) => {
     ],
   };
   return (
-    <div className="aboutUs">
+    <main className="aboutUs">
       <Header
         message="🥸 Dile benden ne dilersen!"
         title="BBT Hakkında"
@@ -97,31 +96,7 @@ const AboutUs = (props: Props) => {
         buttonText="İletişime Geç"
         image="https://img.freepik.com/free-vector/hand-drawn-business-communication-concept_23-2149167947.jpg?t=st=1719887895~exp=1719891495~hmac=713db1698de4a9e5f1f67b79abce0cf07f6193791b2e0d1ea8a9ad61aa2bd98c&w=1380"
       />
-      <AboutTeam />
-      <div className="statistics">
-        <div className="statistic">
-          <FaUsers className="icon" />
-          <div>
-            <b className="count">614</b>
-            <span>Üye</span>
-          </div>
-        </div>
-        <div className="statistic">
-          <MdWork className="icon" />
-          <div>
-            <b className="count">24</b>
-            <span>Kişilik ekip</span>
-          </div>
-        </div>
-        <div className="statistic">
-          <IoCubeSharp className="icon" />
-          <div>
-            <b className="count">4</b>
-            <span>Etkinlik</span>
-          </div>
-        </div>
-      </div>
-      <div className="mission-and-vision custom-container">
+      <section className="mission-and-vision custom-container">
         <div>
           <h1>Misyonumuz</h1>
           <p>
@@ -146,8 +121,34 @@ const AboutUs = (props: Props) => {
             vero?
           </p>
         </div>
-      </div>
-      <div
+      </section>
+      <AboutTeam />
+
+      <section className="statistics">
+        <div className="statistic">
+          <FaUsers className="icon" />
+          <div>
+            <b className="count">614</b>
+            <span>Üye</span>
+          </div>
+        </div>
+        <div className="statistic">
+          <MdWork className="icon" />
+          <div>
+            <b className="count">24</b>
+            <span>Kişilik ekip</span>
+          </div>
+        </div>
+        <div className="statistic">
+          <IoCubeSharp className="icon" />
+          <div>
+            <b className="count">4</b>
+            <span>Etkinlik</span>
+          </div>
+        </div>
+      </section>
+
+      <section
         className="slider-container custom-container team-members"
         style={{}}
       >
@@ -283,8 +284,8 @@ const AboutUs = (props: Props) => {
             </div>
           </div>
         </Slider>
-      </div>
-    </div>
+      </section>
+    </main>
   );
 };
 

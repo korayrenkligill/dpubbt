@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import Header from "../../components/Header/Header";
 import "../../styles/pages/Global/Blogs/Blogs.scss";
 import { FaFilter } from "react-icons/fa6";
