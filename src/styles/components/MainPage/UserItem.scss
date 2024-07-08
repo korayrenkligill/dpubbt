@@ -1,0 +1,19 @@
+.mainpage-user-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.02);
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  border-radius: 1rem;
+  img {
+    max-width: 60px;
+    border-radius: 100px;
+    object-fit: cover;
+    object-position: center;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+  }
+}

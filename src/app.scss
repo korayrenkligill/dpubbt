@@ -12,6 +12,8 @@
 .rightArrow {
   right: 10px !important;
   z-index: 5 !important;
+  border-radius: 999px;
+  backdrop-filter: blur(5px);
   &::before {
     color: black !important;
   }

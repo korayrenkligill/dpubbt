@@ -1,48 +1,107 @@
+@import "../../../variables.scss";
 .main {
-  .container-title {
-    color: var(--primaryColor);
-    font-size: 1.5rem;
-    font-weight: normal;
-    margin-bottom: 1rem;
-    text-transform: uppercase;
-  }
-  .lastest-events {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    .events-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-  }
-  .trend-lesson {
-    margin-top: 6rem;
-    margin-bottom: 6rem;
-    .lesson-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-  }
-  .lastest-blogs {
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    .blogs-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-  }
-  .sponsors {
-    margin-top: 6rem;
-    margin-bottom: 3rem;
-    .sponsor {
-      img {
+  .bar {
+    width: 100%;
+    padding: 0.5rem 0;
+    background-color: var(--secondaryColor);
+    color: white;
+
+    .custom-container {
+      overflow-x: hidden;
+      .bar_content {
+        display: block;
         width: 100%;
-        max-height: 250px;
-        object-fit: contain;
-        object-position: center;
+        transform: translateX(100%);
+        animation: move 15s linear infinite;
+        text-wrap: nowrap;
       }
+    }
+  }
+  @keyframes move {
+    45% {
+      transform: translateX(0%);
+    }
+    55% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 1rem;
+    .content {
+      .container-title {
+        position: relative;
+        margin-bottom: 1rem;
+        h1 {
+          color: var(--primaryColor);
+          display: flex;
+          align-items: center;
+          gap: 0.1rem;
+          font-size: 2rem;
+          line-height: 2rem;
+        }
+        p {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: gray;
+        }
+      }
+      .lastest-events {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        .events-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 1rem;
+        }
+      }
+      .trend-lesson {
+        margin-top: 6rem;
+        margin-bottom: 6rem;
+        .lesson-container {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+          gap: 1rem;
+        }
+      }
+    }
+    .mainpage-sidebar {
+      .container-title {
+        position: relative;
+        margin-bottom: 0.5rem;
+        h1 {
+          color: var(--primaryColor);
+          font-size: 1.5rem;
+          line-height: 1.5rem;
+        }
+      }
+      .lastest-blog {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
+        .blogs-container {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+        }
+      }
+      .users-container {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $screen-md) {
+  .main {
+    .grid {
+      grid-template-columns: 1fr;
     }
   }
 }
