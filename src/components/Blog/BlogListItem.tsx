@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import "../../styles/components/Blog/BlogListItem.scss";
+import { motion } from "framer-motion";
 
 type Props = {
   image?: string;
@@ -9,10 +10,22 @@ type Props = {
   content?: string;
 };
 
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
+};
+
 const BlogListItem = ({ image, title, categories, date, content }: Props) => {
   const navigation = useNavigate();
   return (
-    <div className="blog" onClick={() => navigation("/blog/test")}>
+    <motion.div
+      className="blog"
+      onClick={() => navigation("/blog/test")}
+      variants={item}
+    >
       <div className="image">
         <img className="front" src={image} alt="" />
         <img className="back" src={image} alt="" />
@@ -28,7 +41,7 @@ const BlogListItem = ({ image, title, categories, date, content }: Props) => {
         <h1>{title}</h1>
         <p>{content}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

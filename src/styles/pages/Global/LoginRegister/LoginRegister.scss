@@ -1,4 +1,5 @@
-.login-page {
+.login-page,
+.register-page {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,6 +25,9 @@
     margin-bottom: 1rem;
     width: 100%;
     max-width: 450px;
+    div * {
+      width: 100%;
+    }
     .login-buttons {
       display: flex;
       flex-direction: column;
@@ -38,5 +42,8 @@
     gap: 1rem;
     width: 100%;
     max-width: 450px;
+    div * {
+      width: 100%;
+    }
   }
 }
