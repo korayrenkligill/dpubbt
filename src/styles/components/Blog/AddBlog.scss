@@ -1,0 +1,61 @@
+.add-blog {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.3);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  form {
+    margin: 0 0.5rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    .container-title {
+      position: relative;
+      margin-bottom: 1.5rem;
+      h1 {
+        color: var(--primaryColor);
+        display: flex;
+        align-items: center;
+        gap: 0.1rem;
+        font-size: 1.5rem;
+        line-height: 1.5rem;
+      }
+      p {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: gray;
+      }
+    }
+    & > div {
+      width: 100%;
+    }
+    .input {
+      margin-bottom: 1rem;
+    }
+    .ql-editor {
+      min-height: 120px;
+    }
+    .categories {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+      .category {
+        user-select: none;
+        cursor: pointer;
+      }
+    }
+    button[type="submit"] {
+      width: 100%;
+      margin-top: 1rem;
+    }
+  }
+}

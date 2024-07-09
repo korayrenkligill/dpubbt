@@ -1,0 +1,5 @@
+{
+  "common.title": "Local Page Title",
+  "common.desc": "This is a local page description",
+  "common.welcome": "Welcome to the local page {{username}}"
+}

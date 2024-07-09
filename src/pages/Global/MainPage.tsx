@@ -2,26 +2,34 @@ import Header from "../../components/Header/Header";
 import AboutTeam from "../../components/AboutTeam/AboutTeam";
 import Event from "../../components/OurEvents/Events/Event";
 import Lesson from "../../components/BbtAcademy/Lesson";
-
-import "../../styles/pages/Global/MainPage/MainPage.scss";
 import BlogListItem from "../../components/Blog/BlogListItem";
 import { GoDot } from "react-icons/go";
 import { LiaHashtagSolid } from "react-icons/lia";
 import UserItem from "../../components/MainPage/UserItem/UserItem";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+
+import "../../styles/pages/Global/MainPage/MainPage.scss";
 
 type Props = {};
 
 const MainPage = (props: Props) => {
+  const { t } = useTranslation();
   return (
     <main className="main">
       <Header
-        message="👋 Topluluğumuza Hoşgeldin!"
-        title="Bilgisayar ve Bilişim Topluluğu"
-        description="İnovasyon ve Öğrenmeye Adanmış Bir Aile"
-        buttonText="İletişime Geç"
+        message={t("mainpage.header.message")}
+        title={t("mainpage.header.title")}
+        description={t("mainpage.header.description")}
+        buttonText={t("mainpage.header.button")}
         image="https://i.ibb.co/PjxVCTW/main.png"
       />
-      <div className="bar">
+      <motion.div
+        className="bar"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         <div className="custom-container">
           <span className="bar_content">
             Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -29,7 +37,7 @@ const MainPage = (props: Props) => {
             ever since the 1500s
           </span>
         </div>
-      </div>
+      </motion.div>
       <div className="grid custom-container">
         <div className="content">
           <AboutTeam />

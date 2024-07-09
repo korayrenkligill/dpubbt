@@ -1,11 +1,17 @@
 import { useRef, useState } from "react";
 import Header from "../../components/Header/Header";
-import "../../styles/pages/Global/Blogs/Blogs.scss";
 import { FaFilter } from "react-icons/fa6";
 import BlogListItem from "../../components/Blog/BlogListItem";
 import { Drawer } from "@mui/material";
 import useWindowSizes from "../../components/WindowSizes";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { TiPlus } from "react-icons/ti";
+import AddBlog from "../../components/Blog/AddBlog";
+
+import "../../styles/pages/Global/Blogs/Blogs.scss";
+import { atom, useAtom } from "jotai";
+
+export const addBlogPageAtom = atom(false);
 
 type Props = {};
 
@@ -24,27 +30,9 @@ const Blogs = (props: Props) => {
   const sidebarRef = useRef<HTMLDivElement>(null);
   const { width } = useWindowSizes();
 
-  const DrawerList = (
-    <aside className={filterBar ? "open" : "close"} ref={sidebarRef}>
-      <p className="searchBar">Search</p>
-      <div className="categories">
-        <h2>Categories</h2>
-        <p className="category">Category 1</p>
-        <p className="category">Category 2</p>
-        <p className="category">Category 3</p>
-        <p className="category">Category 4</p>
-        <p className="category">Category 5</p>
-        <p className="category">Category 6</p>
-      </div>
-    </aside>
-  );
+  const [addBlogPage, setAddBlogPage] = useAtom<boolean>(addBlogPageAtom);
 
-  const toggleDrawer = (newOpen: boolean) => () => {
-    console.log(newOpen);
-    setFilterBar(newOpen);
-  };
-
-  const [blogs, setBlogs] = useState([
+  const [blogs] = useState([
     {
       image:
         "https://i.pinimg.com/564x/33/2a/41/332a411f1f8e157a95d1ea679a2077a8.jpg",
@@ -73,22 +61,27 @@ const Blogs = (props: Props) => {
     },
   ]);
 
-  const buttonClicked = () => {
-    const newBlog = {
-      image:
-        "https://i.pinimg.com/564x/33/2a/41/332a411f1f8e157a95d1ea679a2077a8.jpg",
-      categories: ["Category 1", "Category 2"],
-      date: "01/01/2024",
-      title: "Lorem ipsum dolor sit amet consectetur.",
-      content: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi in
-          libero dolore, pariatur, nostrum suscipit cum mollitia recusandae
-          laudantium minus, amet nisi. Corrupti non maiores odit ipsa placeat,
-          perferendis excepturi, vitae officia obcaecati modi eveniet, totam
-          error repellendus nam iste. Velit quaerat recusandae nam quos quia
-          voluptas vitae officiis doloribus.`,
-    };
+  const DrawerList = (
+    <aside className={filterBar ? "open" : "close"} ref={sidebarRef}>
+      <div className="add-blog-button" onClick={() => setAddBlogPage(true)}>
+        <TiPlus className="icon" />
+        <span>Blog yaz</span>
+      </div>
+      <p className="searchBar">Search</p>
+      <div className="categories">
+        <h2>Categories</h2>
+        <p className="category">Category 1</p>
+        <p className="category">Category 2</p>
+        <p className="category">Category 3</p>
+        <p className="category">Category 4</p>
+        <p className="category">Category 5</p>
+        <p className="category">Category 6</p>
+      </div>
+    </aside>
+  );
 
-    setBlogs((oldData) => [...oldData, newBlog]);
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setFilterBar(newOpen);
   };
 
   return (
@@ -99,7 +92,6 @@ const Blogs = (props: Props) => {
         description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
         image="https://img.freepik.com/premium-vector/laptop-coffee-with-mail-notification-love-sign_76326-32.jpg?w=826"
       />
-      <button onClick={buttonClicked}>TEST İÇİN EKLEME YAP</button>
       <div className="custom-container content">
         {width < 1025 ? (
           <Drawer open={filterBar} onClose={toggleDrawer(false)}>
@@ -129,6 +121,7 @@ const Blogs = (props: Props) => {
       <button className="filterbar-button" onClick={toggleDrawer(!filterBar)}>
         <FaFilter />
       </button>
+      <AnimatePresence>{addBlogPage && <AddBlog />}</AnimatePresence>
     </section>
   );
 };
