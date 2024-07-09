@@ -1,6 +1,6 @@
 .blog {
   display: grid;
-  grid-template-rows: 60% 40%;
+  grid-template-rows: auto 1fr;
   border-radius: 1rem;
   overflow: hidden;
   aspect-ratio: 1;
@@ -31,7 +31,7 @@
   }
   .texts {
     height: min-content;
-    padding: 1rem;
+    padding: 0.5rem;
     span {
       font-size: 0.75rem;
       color: var(--primaryColor);

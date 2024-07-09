@@ -2,17 +2,17 @@
 .main {
   .bar {
     width: 100%;
-    padding: 0.5rem 0;
+    max-width: 100vw;
     background-color: var(--secondaryColor);
     color: white;
-
     .custom-container {
       overflow-x: hidden;
+      padding: 0.5rem 0.5rem;
       .bar_content {
+        width: max-content;
         display: block;
-        width: 100%;
         transform: translateX(100%);
-        animation: move 15s linear infinite;
+        animation: move 20s linear infinite;
         text-wrap: nowrap;
       }
     }
@@ -24,13 +24,16 @@
     55% {
       transform: translateX(0%);
     }
+    95% {
+      transform: translateX(-100%);
+    }
     100% {
       transform: translateX(-100%);
     }
   }
   .grid {
     display: grid;
-    grid-template-columns: 1fr 300px;
+    grid-template-columns: 1fr 250px;
     gap: 1rem;
     .content {
       .container-title {
@@ -61,8 +64,7 @@
         }
       }
       .trend-lesson {
-        margin-top: 6rem;
-        margin-bottom: 6rem;
+        margin-top: 3rem;
         .lesson-container {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -102,6 +104,31 @@
   .main {
     .grid {
       grid-template-columns: 1fr;
+      .content {
+        .container-title {
+          h1 {
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+          }
+          p {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: gray;
+          }
+        }
+      }
+      .mainpage-sidebar {
+        .container-title {
+          position: relative;
+          margin-bottom: 0.5rem;
+          h1 {
+            color: var(--primaryColor);
+            font-size: 1.5rem;
+            line-height: 1.5rem;
+          }
+        }
+      }
     }
   }
 }

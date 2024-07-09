@@ -5,7 +5,6 @@ import Lesson from "../../components/BbtAcademy/Lesson";
 
 import "../../styles/pages/Global/MainPage/MainPage.scss";
 import BlogListItem from "../../components/Blog/BlogListItem";
-import Slider from "react-slick";
 import { GoDot } from "react-icons/go";
 import { LiaHashtagSolid } from "react-icons/lia";
 import UserItem from "../../components/MainPage/UserItem/UserItem";
@@ -13,71 +12,6 @@ import UserItem from "../../components/MainPage/UserItem/UserItem";
 type Props = {};
 
 const MainPage = (props: Props) => {
-  function SampleNextArrow(props: any) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={`${className} rightArrow`}
-        style={{
-          ...style,
-          display: "block",
-          right: "0",
-          zIndex: "4",
-        }}
-        onClick={onClick}
-      />
-    );
-  }
-
-  function SamplePrevArrow(props: any) {
-    const { className, style, onClick } = props;
-    return (
-      <div
-        className={`${className} leftArrow`}
-        style={{
-          ...style,
-          display: "block",
-          left: "0",
-          zIndex: "4",
-        }}
-        onClick={onClick}
-      />
-    );
-  }
-  var settings = {
-    dots: false,
-    infinite: true,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    autoplay: true,
-    initialSlide: 0,
-    speed: 500,
-    autoplaySpeed: 2000,
-    className: "center",
-    centerPadding: "60px",
-    swipeToSlide: true,
-    cssEase: "linear",
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          nextArrow: <></>,
-          prevArrow: <></>,
-        },
-      },
-    ],
-  };
   return (
     <main className="main">
       <Header
@@ -135,18 +69,13 @@ const MainPage = (props: Props) => {
           <section className="trend-lesson">
             <div className="lesson-container">
               <Lesson
-                image="https://img.freepik.com/free-photo/young-student-learning-library_23-2149215397.jpg?t=st=1720029625~exp=1720033225~hmac=f24527f32f3b5c65303c451dd1bc80c861264a813f9a1cb8edbe6da29c54448a&w=1380"
+                image="https://i.ibb.co/f2FvnwL/lesson.png"
                 title="Full-stack Web Dersleri"
                 content=" Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Exercitationem totam asperiores, quod quisquam ut molestiae ea iste
-            voluptatem corporis, aperiam explicabo sint impedit quas nam quo
-            nisi maxime natus ullam ratione. Amet culpa voluptatem ab? Repellat,
-            velit iste, expedita tenetur quisquam maxime numquam eaque laborum,
-            commodi sed libero placeat quod alias explicabo."
+            Exercitationem totam asperiores, quod quisquam"
                 topics={["Konu 1", "Konu 2", "Konu 3"]}
                 totalHour={60}
                 lessonCount={10}
-                active
               />
             </div>
           </section>

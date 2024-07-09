@@ -24,20 +24,23 @@ const Lesson = ({
   active = false,
 }: Props) => {
   return (
-    <div className={`${active && "active"} lesson`}>
+    <div
+      className={`${active && "active"} lesson`}
+      style={{
+        backgroundImage: 'url("/images/academyBackground.png")',
+      }}
+    >
       <img src={image} alt="" />
       <div className="details">
-        <div className="title-desc">
-          <h1>{title}</h1>
-          <p>{content}</p>
+        <h1>{title}</h1>
+        <p>{content}</p>
+        <div className="information">
           <div className="topics">
             {topics?.map((item, key) => (
               <span key={key}>{item}</span>
             ))}
           </div>
-        </div>
-        <div className="bottom">
-          <div>
+          <div className="counts">
             <span>
               <IoTime /> {lessonCount} Saat
             </span>
@@ -46,23 +49,8 @@ const Lesson = ({
               {totalHour} Ders
             </span>
           </div>
-          <span className="playButton">
-            <FaPlay />
-          </span>
         </div>
       </div>
-      <img
-        src="/images/lesson-shape-left.png"
-        alt=""
-        id="left-shape"
-        className="shape"
-      />
-      <img
-        src="/images/lesson-shape-right.png"
-        alt=""
-        id="right-shape"
-        className="shape"
-      />
     </div>
   );
 };
