@@ -36,17 +36,19 @@ const Register = (props: Props) => {
         <img src="/images/logo-bbt.png" alt="" />
       </motion.header>
       <form>
-        <motion.div variants={animatedItem}>
-          <TextField size="small" id="name" label="isim" variant="outlined" />
-        </motion.div>
-        <motion.div variants={animatedItem}>
-          <TextField
-            size="small"
-            id="surname"
-            label="soyisim"
-            variant="outlined"
-          />
-        </motion.div>
+        <div className="double-input">
+          <motion.div variants={animatedItem}>
+            <TextField size="small" id="name" label="isim" variant="outlined" />
+          </motion.div>
+          <motion.div variants={animatedItem}>
+            <TextField
+              size="small"
+              id="surname"
+              label="soyisim"
+              variant="outlined"
+            />
+          </motion.div>
+        </div>
         <motion.div variants={animatedItem}>
           <TextField
             size="small"
@@ -73,6 +75,33 @@ const Register = (props: Props) => {
             variant="outlined"
           />
         </motion.div>
+        <motion.div variants={animatedItem}>
+          <TextField
+            size="small"
+            id="school-no"
+            label="okul no"
+            variant="outlined"
+          />
+        </motion.div>
+        <div className="double-input">
+          <motion.div variants={animatedItem}>
+            <TextField
+              size="small"
+              id="faculty"
+              label="fakülte"
+              variant="outlined"
+            />
+          </motion.div>
+          <motion.div variants={animatedItem}>
+            <TextField
+              size="small"
+              id="department"
+              label="bölüm"
+              variant="outlined"
+            />
+          </motion.div>
+        </div>
+
         <div className="login-buttons">
           <motion.div variants={animatedItem}>
             <Button variant="contained" color="secondary">

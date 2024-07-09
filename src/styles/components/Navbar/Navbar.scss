@@ -179,6 +179,7 @@ nav {
       margin-top: auto;
       gap: 1rem;
       padding: 0.5rem 1rem;
+
       .login {
         display: inline-block;
         padding: 0.5rem 1rem;
@@ -190,6 +191,11 @@ nav {
       }
       .register {
         padding: 1rem;
+      }
+      div,
+      div * {
+        display: inline-block;
+        width: 100%;
       }
     }
   }

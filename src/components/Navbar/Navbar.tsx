@@ -66,16 +66,16 @@ const Navbar = (props: Props) => {
         ))}
       </ul>
       <div className="auth" onClick={changeNavbarState}>
-        <motion.span variants={animatedItem}>
+        <motion.div variants={animatedItem}>
           <Link to={"/login"} className="login">
             Giriş Yap
           </Link>
-        </motion.span>
-        <motion.span variants={animatedItem}>
+        </motion.div>
+        <motion.div variants={animatedItem}>
           <Link to={"/register"} className="register">
             Kayıt Ol
           </Link>
-        </motion.span>
+        </motion.div>
       </div>
     </motion.nav>
   );

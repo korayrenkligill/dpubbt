@@ -1,3 +1,4 @@
+@import "../../../variables.scss";
 .login-page,
 .register-page {
   display: flex;
@@ -25,8 +26,16 @@
     margin-bottom: 1rem;
     width: 100%;
     max-width: 450px;
-    div * {
+    div:not(.double-input) > div,
+    div:not(.double-input) > button {
       width: 100%;
+    }
+    .double-input {
+      display: flex;
+      gap: 1rem;
+      & > div {
+        flex: 1;
+      }
     }
     .login-buttons {
       display: flex;
@@ -44,6 +53,17 @@
     max-width: 450px;
     div * {
       width: 100%;
+    }
+  }
+}
+
+@media screen and (max-width: $screen-md) {
+  .login-page,
+  .register-page {
+    form {
+      .double-input {
+        flex-direction: column;
+      }
     }
   }
 }
