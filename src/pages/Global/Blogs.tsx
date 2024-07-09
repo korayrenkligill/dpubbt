@@ -1,18 +1,37 @@
-import { useCallback, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import Header from "../../components/Header/Header";
 import "../../styles/pages/Global/Blogs/Blogs.scss";
 import { FaFilter } from "react-icons/fa6";
 import BlogListItem from "../../components/Blog/BlogListItem";
+import { Drawer } from "@mui/material";
+import useWindowSizes from "../../components/WindowSizes";
 
 type Props = {};
 
 const Blogs = (props: Props) => {
-  const [filterBar, setFilterBar] = useState(false);
+  const [filterBar, setFilterBar] = useState<boolean>(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
+  const { width } = useWindowSizes();
 
-  const filterBarChange = useCallback(() => {
-    setFilterBar(!filterBar);
-  }, [filterBar]);
+  const DrawerList = (
+    <aside className={filterBar ? "open" : "close"} ref={sidebarRef}>
+      <p className="searchBar">Search</p>
+      <div className="categories">
+        <h2>Categories</h2>
+        <p className="category">Category 1</p>
+        <p className="category">Category 2</p>
+        <p className="category">Category 3</p>
+        <p className="category">Category 4</p>
+        <p className="category">Category 5</p>
+        <p className="category">Category 6</p>
+      </div>
+    </aside>
+  );
+
+  const toggleDrawer = (newOpen: boolean) => () => {
+    console.log(newOpen);
+    setFilterBar(newOpen);
+  };
 
   return (
     <section className="blogs">
@@ -23,18 +42,13 @@ const Blogs = (props: Props) => {
         image="https://img.freepik.com/premium-vector/laptop-coffee-with-mail-notification-love-sign_76326-32.jpg?w=826"
       />
       <div className="custom-container content">
-        <aside className={filterBar ? "open" : "close"} ref={sidebarRef}>
-          <p className="searchBar">Search</p>
-          <div className="categories">
-            <h2>Categories</h2>
-            <p className="category">Category 1</p>
-            <p className="category">Category 2</p>
-            <p className="category">Category 3</p>
-            <p className="category">Category 4</p>
-            <p className="category">Category 5</p>
-            <p className="category">Category 6</p>
-          </div>
-        </aside>
+        {width < 1025 ? (
+          <Drawer open={filterBar} onClose={toggleDrawer(false)}>
+            {DrawerList}
+          </Drawer>
+        ) : (
+          <>{DrawerList}</>
+        )}
         <main className="blogs">
           <BlogListItem
             image="https://i.pinimg.com/564x/33/2a/41/332a411f1f8e157a95d1ea679a2077a8.jpg"
@@ -50,7 +64,7 @@ const Blogs = (props: Props) => {
           />
         </main>
       </div>
-      <button className="filterbar-button" onClick={filterBarChange}>
+      <button className="filterbar-button" onClick={toggleDrawer(!filterBar)}>
         <FaFilter />
       </button>
     </section>
