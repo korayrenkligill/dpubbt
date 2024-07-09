@@ -20,7 +20,7 @@ const BlogListItem = ({ image, title, categories, date, content }: Props) => {
       <div className="texts">
         <span>
           {categories?.map((item, key) => {
-            if (key !== item.length - 1) return <>{item}, </>;
+            if (key !== categories.length - 1) return <>{item}, </>;
             else return <>{item}</>;
           })}{" "}
           - {date}

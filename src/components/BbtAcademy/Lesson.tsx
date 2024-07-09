@@ -1,6 +1,5 @@
 import { IoTime } from "react-icons/io5";
 import { BsArrowCounterclockwise } from "react-icons/bs";
-import { FaPlay } from "react-icons/fa";
 
 import "../../styles/components/BbtAcademy/Lesson.scss";
 

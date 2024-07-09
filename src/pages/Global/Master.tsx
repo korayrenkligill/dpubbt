@@ -9,7 +9,6 @@ const Navbar = lazy(() => import("../../components/Navbar/Navbar"));
 type Props = {};
 
 const Master = (props: Props) => {
-  console.log("master rendered");
   return (
     <div className="Master">
       <Navbar />

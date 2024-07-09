@@ -1,11 +1,22 @@
-import React, { lazy } from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
-import MainPage from "./pages/Global/MainPage";
 import { Provider } from "jotai";
 import { bbtStore } from "./atom";
+import { createTheme } from "@mui/material/styles";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+
+import Master from "./pages/Global/Master";
+import AdminMaster from "./pages/Admin/AdminMaster";
+import MainPage from "./pages/Global/MainPage";
 import OurEvents from "./pages/Global/OurEvents";
 import Test from "./pages/Global/Test";
 import Blogs from "./pages/Global/Blogs";
@@ -13,11 +24,9 @@ import AboutUs from "./pages/Global/AboutUs";
 import BlogDetail from "./pages/Global/BlogDetail";
 import ContactUs from "./pages/Global/ContactUs";
 import BbtAcademy from "./pages/Global/BbtAcademy";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
-const Master = lazy(() => import("./pages/Global/Master"));
-const AdminMaster = lazy(() => import("./pages/Admin/AdminMaster"));
+import Login from "./pages/Global/Login";
+import Register from "./pages/Global/Register";
+import { ThemeProvider } from "@emotion/react";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +64,14 @@ const router = createBrowserRouter([
           {
             path: "/contact-us",
             element: <ContactUs />,
+          },
+          {
+            path: "/login",
+            element: <Login />,
+          },
+          {
+            path: "/register",
+            element: <Register />,
           },
           {
             path: "/test",
@@ -99,10 +116,29 @@ const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: "rgb(36, 159, 190)",
+      main: "rgb(40, 141, 167)",
+      dark: "rgb(35, 117, 137)",
+      contrastText: "#fff",
+    },
+    secondary: {
+      light: "rgb(19, 104, 153)",
+      main: "rgb(24, 96, 139)",
+      dark: "rgb(16, 76, 110)",
+      contrastText: "#fff",
+    },
+  },
+});
+
 root.render(
   <React.StrictMode>
     <Provider store={bbtStore}>
-      <RouterProvider router={router} fallbackElement={<>Loading...</>} />
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router} fallbackElement={<>Loading...</>} />
+      </ThemeProvider>
     </Provider>
   </React.StrictMode>
 );

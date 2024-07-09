@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../../styles/components/AboutTeam/AboutTeam.scss";
 import { Link } from "react-router-dom";
 import { GoChevronRight } from "react-icons/go";
-import Shape from "../Shape/Shape";
 type Props = {};
 
 const AboutTeam = (props: Props) => {
@@ -104,35 +103,6 @@ const AboutTeam = (props: Props) => {
           </Link>
         </div>
       </div>
-      <Shape
-        image="circle256.png"
-        top="15%"
-        left="55%"
-        backgroundColor="rgb(166, 199, 234)"
-        width={100}
-        height={100}
-        opacity={0.2}
-      />
-      <Shape
-        image="abstract-shape.png"
-        bottom="10%"
-        right="10%"
-        backgroundColor="rgb(251, 222, 226)"
-        width={200}
-        height={200}
-        opacity={0.4}
-      />
-      <Shape
-        image="dots.png"
-        bottom="10%"
-        left="10%"
-        backgroundColor="rgb(159, 213, 190)"
-        width={150}
-        height={150}
-        opacity={0.2}
-      />
-      {/* <img src="/images/shapes/circle256.png" alt="" id="about-us-shape-1" />
-      <img src="/images/shapes/circle256.png" alt="" id="about-us-shape-2" /> */}
     </section>
   );
 };

@@ -14,7 +14,6 @@ const Event = ({ title, date, emoji, backgroundColor, status }: Props) => {
     const spacedText = formattedText.split("").join(" ");
     const result = new Array(20).fill(spacedText).join("\n");
 
-    console.log(result);
     return result;
   };
   return (

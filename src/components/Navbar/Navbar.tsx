@@ -43,10 +43,10 @@ const Navbar = (props: Props) => {
         ))}
       </ul>
       <div className="auth" onClick={changeNavbarState}>
-        <Link to={"#"} className="login">
+        <Link to={"/login"} className="login">
           Giriş Yap
         </Link>
-        <Link to={"#"} className="register">
+        <Link to={"/register"} className="register">
           Kayıt Ol
         </Link>
       </div>
