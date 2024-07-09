@@ -4,6 +4,7 @@ import "../../styles/pages/Global/ContactUs/ContactUs.scss";
 import { FaPhone } from "react-icons/fa6";
 import { IoMail } from "react-icons/io5";
 import { AiFillInstagram } from "react-icons/ai";
+import AdminTools from "../../components/AdminTools";
 
 type Props = {};
 
@@ -80,6 +81,7 @@ const ContactUs = (props: Props) => {
           43100 Kütahya Merkez/Kütahya
         </p>
       </section>
+      <AdminTools pageName="contact" />
     </main>
   );
 };

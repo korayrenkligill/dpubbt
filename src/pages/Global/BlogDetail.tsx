@@ -1,5 +1,6 @@
 import React from "react";
 import "../../styles/pages/Global/Blogs/BlogDetail.scss";
+import AdminTools from "../../components/AdminTools";
 
 type Props = {};
 
@@ -100,6 +101,7 @@ const BlogDetail = (props: Props) => {
           <section>Son paylaşılanlar</section>
         </aside>
       </div>
+      <AdminTools pageName="blog-detail" />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { createBrowserRouter, Link, RouterProvider } from "react-router-dom";
-import { Provider } from "jotai";
+import { atom, Provider } from "jotai";
 import { bbtStore } from "./atom";
 import { createTheme } from "@mui/material/styles";
 import "./i18n";
@@ -17,7 +17,6 @@ import "@fontsource/roboto/700.css";
 import "react-quill/dist/quill.snow.css";
 
 import Master from "./pages/Global/Master";
-import AdminMaster from "./pages/Admin/AdminMaster";
 import MainPage from "./pages/Global/MainPage";
 import OurEvents from "./pages/Global/OurEvents";
 import Test from "./pages/Global/Test";
@@ -29,6 +28,8 @@ import BbtAcademy from "./pages/Global/BbtAcademy";
 import Login from "./pages/Global/Login";
 import Register from "./pages/Global/Register";
 import { ThemeProvider } from "@emotion/react";
+import UserControl from "./components/UserControl";
+import { UserType } from "./types/User";
 
 const router = createBrowserRouter([
   {
@@ -77,13 +78,13 @@ const router = createBrowserRouter([
           },
           {
             path: "/test",
-            element: <Test />,
+            element: (
+              <UserControl>
+                <Test />
+              </UserControl>
+            ),
           },
         ],
-      },
-      {
-        path: "/admin",
-        element: <AdminMaster />,
       },
     ],
   },
@@ -134,6 +135,8 @@ const theme = createTheme({
     },
   },
 });
+
+export const userAtom = atom<UserType | null>(null);
 
 root.render(
   <React.StrictMode>

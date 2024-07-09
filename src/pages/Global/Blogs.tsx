@@ -9,7 +9,10 @@ import { TiPlus } from "react-icons/ti";
 import AddBlog from "../../components/Blog/AddBlog";
 
 import "../../styles/pages/Global/Blogs/Blogs.scss";
-import { atom, useAtom } from "jotai";
+import { atom, useAtom, useAtomValue } from "jotai";
+import { userAtom } from "../..";
+import { useNavigate } from "react-router-dom";
+import AdminTools from "../../components/AdminTools";
 
 export const addBlogPageAtom = atom(false);
 
@@ -26,11 +29,14 @@ const container = {
 };
 
 const Blogs = (props: Props) => {
-  const [filterBar, setFilterBar] = useState<boolean>(false);
   const sidebarRef = useRef<HTMLDivElement>(null);
   const { width } = useWindowSizes();
+  const navigation = useNavigate();
 
+  const userRole = useAtomValue(userAtom);
   const [addBlogPage, setAddBlogPage] = useAtom<boolean>(addBlogPageAtom);
+
+  const [filterBar, setFilterBar] = useState<boolean>(false);
 
   const [blogs] = useState([
     {
@@ -63,10 +69,17 @@ const Blogs = (props: Props) => {
 
   const DrawerList = (
     <aside className={filterBar ? "open" : "close"} ref={sidebarRef}>
-      <div className="add-blog-button" onClick={() => setAddBlogPage(true)}>
-        <TiPlus className="icon" />
-        <span>Blog yaz</span>
-      </div>
+      {userRole ? (
+        <div className="add-blog-button" onClick={() => setAddBlogPage(true)}>
+          <TiPlus className="icon" />
+          <span>Blog yaz</span>
+        </div>
+      ) : (
+        <div className="add-blog-button" onClick={() => navigation("/login")}>
+          <TiPlus className="icon" />
+          <span>Blog yazmak için giriş yap</span>
+        </div>
+      )}
       <p className="searchBar">Search</p>
       <div className="categories">
         <h2>Categories</h2>
@@ -122,6 +135,7 @@ const Blogs = (props: Props) => {
         <FaFilter />
       </button>
       <AnimatePresence>{addBlogPage && <AddBlog />}</AnimatePresence>
+      <AdminTools pageName="blog" />
     </section>
   );
 };

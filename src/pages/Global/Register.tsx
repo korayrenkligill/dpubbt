@@ -2,6 +2,7 @@ import { Button, Divider, TextField } from "@mui/material";
 import "../../styles/pages/Global/LoginRegister/LoginRegister.scss";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import AdminTools from "../../components/AdminTools";
 
 type Props = {};
 
@@ -124,6 +125,7 @@ const Register = (props: Props) => {
           </Button>
         </motion.div>
       </div>
+      <AdminTools pageName="register" />
     </motion.main>
   );
 };

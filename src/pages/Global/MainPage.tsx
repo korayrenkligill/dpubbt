@@ -10,11 +10,13 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 
 import "../../styles/pages/Global/MainPage/MainPage.scss";
+import AdminTools from "../../components/AdminTools";
 
 type Props = {};
 
 const MainPage = (props: Props) => {
   const { t } = useTranslation();
+
   return (
     <main className="main">
       <Header
@@ -122,6 +124,7 @@ const MainPage = (props: Props) => {
           </section>
         </div>
       </div>
+      <AdminTools pageName="main" />
     </main>
   );
 };

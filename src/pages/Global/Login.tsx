@@ -2,6 +2,9 @@ import { Button, Divider, TextField } from "@mui/material";
 import "../../styles/pages/Global/LoginRegister/LoginRegister.scss";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useSetAtom } from "jotai";
+import { userAtom } from "../..";
+import AdminTools from "../../components/AdminTools";
 
 type Props = {};
 
@@ -25,6 +28,8 @@ const animatedItem = {
 
 const Login = (props: Props) => {
   const navigation = useNavigate();
+
+  const setUserRole = useSetAtom(userAtom);
   return (
     <motion.main
       className="login-page"
@@ -79,7 +84,35 @@ const Login = (props: Props) => {
             Kayıt Ol
           </Button>
         </motion.div>
+        <motion.div variants={animatedItem}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setUserRole(null)}
+          >
+            (Test) Clear User
+          </Button>
+        </motion.div>
+        <motion.div variants={animatedItem}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setUserRole({ role: "user" })}
+          >
+            (Test) User
+          </Button>
+        </motion.div>
+        <motion.div variants={animatedItem}>
+          <Button
+            variant="contained"
+            color="primary"
+            onClick={() => setUserRole({ role: "admin" })}
+          >
+            (Test) Admin
+          </Button>
+        </motion.div>
       </div>
+      <AdminTools pageName="login" />
     </motion.main>
   );
 };

@@ -1,3 +1,4 @@
+import AdminTools from "../../components/AdminTools";
 import Lesson from "../../components/BbtAcademy/Lesson";
 import Header from "../../components/Header/Header";
 
@@ -25,6 +26,7 @@ const BbtAcademy = (props: Props) => {
           lessonCount={10}
         />
       </main>
+      <AdminTools pageName="academy" />
     </div>
   );
 };

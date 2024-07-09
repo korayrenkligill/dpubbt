@@ -7,6 +7,7 @@ import { MdWork } from "react-icons/md";
 import { IoCubeSharp } from "react-icons/io5";
 
 import "../../styles/pages/Global/AboutUs/AboutUs.scss";
+import AdminTools from "../../components/AdminTools";
 type Props = {};
 
 const AboutUs = (props: Props) => {
@@ -285,6 +286,7 @@ const AboutUs = (props: Props) => {
           </div>
         </Slider>
       </section>
+      <AdminTools pageName="about-us" />
     </main>
   );
 };
