@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import "../../../styles/pages/Global/OurEvents/Events.scss";
 
 type Props = {
@@ -6,9 +7,12 @@ type Props = {
   emoji?: string;
   backgroundColor?: string;
   status?: "completed" | "waiting" | "cancelled";
+  url: string;
 };
 
-const Event = ({ title, date, emoji, backgroundColor, status }: Props) => {
+const Event = ({ title, date, emoji, backgroundColor, status, url }: Props) => {
+  const navigation = useNavigate();
+
   const backgroundText = (text: string) => {
     const formattedText = text.replace(/\s+/g, "").toUpperCase();
     const spacedText = formattedText.split("").join(" ");
@@ -22,6 +26,7 @@ const Event = ({ title, date, emoji, backgroundColor, status }: Props) => {
       style={{
         backgroundColor: backgroundColor,
       }}
+      onClick={() => navigation(`/${url}`)}
     >
       <div className="status">
         <p>

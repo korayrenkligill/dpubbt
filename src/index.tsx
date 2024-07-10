@@ -30,6 +30,7 @@ import Register from "./pages/Global/Register";
 import { ThemeProvider } from "@emotion/react";
 import UserControl from "./components/UserControl";
 import { UserType } from "./types/User";
+import code from "./testEvent";
 
 const router = createBrowserRouter([
   {
@@ -85,6 +86,10 @@ const router = createBrowserRouter([
             ),
           },
         ],
+      },
+      {
+        path: "/event",
+        element: <div dangerouslySetInnerHTML={{ __html: code }} />,
       },
     ],
   },

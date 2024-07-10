@@ -21,6 +21,7 @@ const OurEvents = (props: Props) => {
           emoji="🎮"
           backgroundColor="#a4aeeb"
           status="cancelled"
+          url="event"
         />
         <Event
           title="Hackathon 2024"
@@ -28,6 +29,7 @@ const OurEvents = (props: Props) => {
           emoji="💻"
           backgroundColor="#26aeff"
           status="waiting"
+          url="event"
         />
         <Event
           title="Game Jam 2023"
@@ -35,6 +37,7 @@ const OurEvents = (props: Props) => {
           emoji="🙀"
           backgroundColor="#fcd53f"
           status="completed"
+          url="event"
         />
       </EventsContainer>
       <AdminTools pageName="events" />
