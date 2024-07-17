@@ -29,8 +29,8 @@ section.blogs {
     border-radius: 9999px;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.2), 0 2px 4px -2px rgb(0 0 0 / 0.2);
     border: 1px solid rgba(0, 0, 0, 0.05);
-    background-color: var(--secondaryColor);
-    color: white;
+    background-color: var(--primary);
+    color: var(--onPrimary);
   }
 }
 aside {
@@ -43,8 +43,8 @@ aside {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    color: white;
-    background-color: var(--secondaryColor);
+    background-color: var(--primary);
+    color: var(--onPrimary);
     height: 50px;
     padding: 1rem;
     border-radius: 1rem;

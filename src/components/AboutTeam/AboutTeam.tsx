@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "../../styles/components/AboutTeam/AboutTeam.scss";
 import { Link } from "react-router-dom";
 import { GoChevronRight } from "react-icons/go";
-type Props = {};
+import { TbClick } from "react-icons/tb";
 
-const AboutTeam = (props: Props) => {
+type Props = { moreButton?: boolean };
+
+const AboutTeam = ({ moreButton = false }: Props) => {
   const texts = [
     {
       title: "Bilgisayar ve Bilişim Topluluğu Nedir?",
@@ -51,7 +53,11 @@ const AboutTeam = (props: Props) => {
   const [selectedTeam, setSelectedTeam] = useState<number>(0);
   return (
     <section className="about-us-comp">
-      <div className="about-us-comp-container custom-container">
+      <div
+        className={`about-us-comp-container ${
+          !moreButton && "custom-container"
+        }`}
+      >
         <div className="teams">
           <div
             className={`team team1 ${selectedTeam === 1 && "active"}`}
@@ -59,6 +65,7 @@ const AboutTeam = (props: Props) => {
           >
             <div className="team-content">
               <img src="/images/icons/graduate.png" alt="" />
+              <TbClick className="icon" />
             </div>
           </div>
           <div
@@ -67,6 +74,7 @@ const AboutTeam = (props: Props) => {
           >
             <div className="team-content">
               <img src="/images/icons/megaphone.png" alt="" />
+              <TbClick className="icon" />
             </div>
           </div>
           <div
@@ -75,6 +83,7 @@ const AboutTeam = (props: Props) => {
           >
             <div className="team-content">
               <img src="/images/icons/network.png" alt="" />
+              <TbClick className="icon" />
             </div>
           </div>
           <div
@@ -83,6 +92,7 @@ const AboutTeam = (props: Props) => {
           >
             <div className="team-content">
               <img src="/images/icons/team-leader.png" alt="" />
+              <TbClick className="icon" />
             </div>
           </div>
           <div
@@ -98,9 +108,11 @@ const AboutTeam = (props: Props) => {
           <h2 className="main-title">HAKKIMIZDA</h2>
           <h1 className="title">{texts[selectedTeam].title}</h1>
           <p className="description">{texts[selectedTeam].description}</p>
-          <Link to="#" className="more">
-            <GoChevronRight className="icon" /> Devamını Oku
-          </Link>
+          {moreButton && (
+            <Link to="/about-us" className="more">
+              <GoChevronRight className="icon" /> Devamını Oku
+            </Link>
+          )}
         </div>
       </div>
     </section>

@@ -1,16 +1,20 @@
+import { GoDot } from "react-icons/go";
+import { LiaHashtagSolid } from "react-icons/lia";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
 import Header from "../../components/Header/Header";
 import AboutTeam from "../../components/AboutTeam/AboutTeam";
 import Event from "../../components/OurEvents/Events/Event";
 import Lesson from "../../components/BbtAcademy/Lesson";
 import BlogListItem from "../../components/Blog/BlogListItem";
-import { GoDot } from "react-icons/go";
-import { LiaHashtagSolid } from "react-icons/lia";
 import UserItem from "../../components/MainPage/UserItem/UserItem";
-import { useTranslation } from "react-i18next";
-import { motion } from "framer-motion";
+import AdminTools from "../../components/AdminTools";
+import ContactForm from "../../components/ContactUs/ContactForm";
+import { GoChevronRight } from "react-icons/go";
 
 import "../../styles/pages/Global/MainPage/MainPage.scss";
-import AdminTools from "../../components/AdminTools";
 
 type Props = {};
 
@@ -42,15 +46,19 @@ const MainPage = (props: Props) => {
       </motion.div>
       <div className="grid custom-container">
         <div className="content">
-          <AboutTeam />
           <section className="lastest-events">
             <div className="container-title">
-              <h1 className="title-font">
-                <LiaHashtagSolid /> Son etkinliklerimiz
-              </h1>
-              <p>
-                <GoDot /> Lorem ipsum dolor sit amet.
-              </p>
+              <div>
+                <h1 className="title-font">
+                  <LiaHashtagSolid /> Son etkinliklerimiz
+                </h1>
+                <p>
+                  <GoDot /> Lorem ipsum dolor sit amet.
+                </p>
+              </div>
+              <Link to="/our-events">
+                Dahası <GoChevronRight />
+              </Link>
             </div>
             <div className="events-container">
               <Event
@@ -79,7 +87,21 @@ const MainPage = (props: Props) => {
               />
             </div>
           </section>
+          <AboutTeam moreButton />
           <section className="trend-lesson">
+            <div className="container-title">
+              <div>
+                <h1 className="title-font">
+                  <LiaHashtagSolid /> Derslerimiz
+                </h1>
+                <p>
+                  <GoDot /> Lorem ipsum dolor sit amet.
+                </p>
+              </div>
+              <Link to="/bbt-academy">
+                Dahası <GoChevronRight />
+              </Link>
+            </div>
             <div className="lesson-container">
               <Lesson
                 image="https://i.ibb.co/f2FvnwL/lesson.png"
@@ -91,6 +113,22 @@ const MainPage = (props: Props) => {
                 lessonCount={10}
               />
             </div>
+          </section>
+          <section className="mainpage-contact">
+            <div className="container-title">
+              <div>
+                <h1 className="title-font">
+                  <LiaHashtagSolid /> İletişim Formu
+                </h1>
+                <p>
+                  <GoDot /> Lorem ipsum dolor sit amet.
+                </p>
+              </div>
+              <Link to="/contact-us">
+                Dahası <GoChevronRight />
+              </Link>
+            </div>
+            <ContactForm />
           </section>
         </div>
         <div className="mainpage-sidebar">
@@ -118,11 +156,21 @@ const MainPage = (props: Props) => {
               <h1 className="title-font">Son Üyeler</h1>
             </div>
             <div className="users-container">
-              <UserItem />
-              <UserItem />
-              <UserItem />
-              <UserItem />
-              <UserItem />
+              <UserItem
+                image="https://randomuser.me/api/portraits/women/43.jpg"
+                name="Beverley"
+                surname="Tucker"
+                role="Yönetici"
+              />
+              <UserItem name="Erika" surname="Richards" role="Yazar" />
+              <UserItem name="Dennis" surname="Harrison" role="Ekip Üyesi" />
+              <UserItem
+                image="https://randomuser.me/api/portraits/men/49.jpg"
+                name="Alvin"
+                surname="Harrison"
+                role="Üye"
+              />
+              <UserItem name="Patrick" surname="Lawson" role="Üye" />
             </div>
           </section>
         </div>

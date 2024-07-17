@@ -1,18 +1,19 @@
 import { useRef, useState } from "react";
-import Header from "../../components/Header/Header";
 import { FaFilter } from "react-icons/fa6";
-import BlogListItem from "../../components/Blog/BlogListItem";
 import { Drawer } from "@mui/material";
-import useWindowSizes from "../../components/WindowSizes";
 import { AnimatePresence, motion } from "framer-motion";
 import { TiPlus } from "react-icons/ti";
+import { atom, useAtom, useAtomValue } from "jotai";
+import { useNavigate } from "react-router-dom";
+import { userAtom } from "../..";
+
+import Header from "../../components/Header/Header";
+import BlogListItem from "../../components/Blog/BlogListItem";
+import useWindowSizes from "../../components/WindowSizes";
 import AddBlog from "../../components/Blog/AddBlog";
+import AdminTools from "../../components/AdminTools";
 
 import "../../styles/pages/Global/Blogs/Blogs.scss";
-import { atom, useAtom, useAtomValue } from "jotai";
-import { userAtom } from "../..";
-import { useNavigate } from "react-router-dom";
-import AdminTools from "../../components/AdminTools";
 
 export const addBlogPageAtom = atom(false);
 
@@ -70,7 +71,13 @@ const Blogs = (props: Props) => {
   const DrawerList = (
     <aside className={filterBar ? "open" : "close"} ref={sidebarRef}>
       {userRole ? (
-        <div className="add-blog-button" onClick={() => setAddBlogPage(true)}>
+        <div
+          className="add-blog-button"
+          onClick={() => {
+            setFilterBar(false);
+            setAddBlogPage(true);
+          }}
+        >
           <TiPlus className="icon" />
           <span>Blog yaz</span>
         </div>

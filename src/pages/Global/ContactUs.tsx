@@ -5,6 +5,7 @@ import { FaPhone } from "react-icons/fa6";
 import { IoMail } from "react-icons/io5";
 import { AiFillInstagram } from "react-icons/ai";
 import AdminTools from "../../components/AdminTools";
+import ContactForm from "../../components/ContactUs/ContactForm";
 
 type Props = {};
 
@@ -47,27 +48,7 @@ const ContactUs = (props: Props) => {
             </div>
           </div>
         </div>
-        <form className="form">
-          <div className="double-input">
-            <div className="input-container">
-              <label htmlFor="">İsim</label>
-              <input type="text" />
-            </div>
-            <div className="input-container">
-              <label htmlFor="">Soyisim</label>
-              <input type="text" />
-            </div>
-          </div>
-          <div className="input-container">
-            <label htmlFor="">E-posta adresi</label>
-            <input type="text" />
-          </div>
-          <div className="input-container">
-            <label htmlFor="">Mesaj</label>
-            <textarea name="" id="" rows={8}></textarea>
-          </div>
-          <button>Gönder</button>
-        </form>
+        <ContactForm />
       </section>
       <section className="map custom-container">
         <iframe

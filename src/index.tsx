@@ -127,15 +127,15 @@ const root = ReactDOM.createRoot(
 const theme = createTheme({
   palette: {
     primary: {
-      light: "rgb(36, 159, 190)",
-      main: "rgb(40, 141, 167)",
-      dark: "rgb(35, 117, 137)",
+      light: "#005df3",
+      main: "#024ec7",
+      dark: "#003fa5",
       contrastText: "#fff",
     },
     secondary: {
-      light: "rgb(19, 104, 153)",
-      main: "rgb(24, 96, 139)",
-      dark: "rgb(16, 76, 110)",
+      light: "#287bff",
+      main: "#0b65f3",
+      dark: "#004fcf",
       contrastText: "#fff",
     },
   },

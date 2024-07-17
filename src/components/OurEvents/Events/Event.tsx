@@ -1,4 +1,6 @@
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
 import "../../../styles/pages/Global/OurEvents/Events.scss";
 
 type Props = {
@@ -8,6 +10,14 @@ type Props = {
   backgroundColor?: string;
   status?: "completed" | "waiting" | "cancelled";
   url: string;
+};
+
+const item = {
+  hidden: { y: 20, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+  },
 };
 
 const Event = ({ title, date, emoji, backgroundColor, status, url }: Props) => {
@@ -21,14 +31,25 @@ const Event = ({ title, date, emoji, backgroundColor, status, url }: Props) => {
     return result;
   };
   return (
-    <div
+    <motion.div
       className="event"
       style={{
         backgroundColor: backgroundColor,
       }}
       onClick={() => navigation(`/${url}`)}
+      variants={item}
     >
-      <div className="status">
+      <div
+        className="status"
+        style={{
+          color:
+            status === "completed"
+              ? "var(--onSuccess)"
+              : status === "waiting"
+              ? "var(--onWarn)"
+              : "var(--onError)",
+        }}
+      >
         <p>
           {status === "completed"
             ? "Tamamlandı"
@@ -41,10 +62,10 @@ const Event = ({ title, date, emoji, backgroundColor, status, url }: Props) => {
           style={{
             backgroundColor:
               status === "completed"
-                ? "rgb(72, 255, 0)"
+                ? "var(--success)"
                 : status === "waiting"
-                ? "rgb(255, 217, 0)"
-                : "rgb(197, 0, 0)",
+                ? "var(--warn)"
+                : "var(--error)",
           }}
         ></div>
       </div>
@@ -54,7 +75,7 @@ const Event = ({ title, date, emoji, backgroundColor, status, url }: Props) => {
       </div>
       <i className="background-text">{backgroundText(title ?? "")}</i>
       <div className="emoji">{emoji}</div>
-    </div>
+    </motion.div>
   );
 };
 

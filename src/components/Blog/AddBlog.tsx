@@ -124,7 +124,7 @@ const AddBlog = (props: Props) => {
         <div className="categories">
           {categories.map((item, key) => {
             return (
-              <motion.span className="category">
+              <motion.span className="category" key={key}>
                 <Chip
                   label={item}
                   color={

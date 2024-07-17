@@ -9,32 +9,31 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    min-height: 400px;
     .texts {
       .main-title {
         font-size: 1rem;
         font-weight: normal;
-        color: gray;
-        color: var(--primaryColor);
+        color: var(--secondary);
       }
       .title {
         font-size: 1.5rem;
         margin-bottom: 0.5rem;
-        color: var(--secondaryColor);
+        color: var(--primaryText);
       }
       .description {
         margin-bottom: 1rem;
+        color: var(--secondaryText);
       }
       .more {
         display: inline-flex;
         align-items: center;
-        color: var(--primaryColor);
+        color: var(--secondary);
         .icon {
           transform: translateY(1px) scale(1.5);
           margin-right: 0.5rem;
         }
         &:hover {
-          color: var(--secondaryColor);
+          color: var(--secondary);
         }
       }
     }
@@ -43,8 +42,7 @@
       grid-template-columns: auto auto;
       place-content: center;
       gap: 0.5rem;
-      margin: 5rem;
-      transform: rotate(45deg);
+      position: relative;
       .team {
         width: 130px;
         height: 130px;
@@ -57,13 +55,20 @@
         transition: filter 0.3s;
         cursor: pointer;
         .team-content {
-          transform: rotate(-45deg);
           img {
             width: 100%;
             transform: scale(0.8);
             filter: brightness(0) invert(1);
             opacity: 0.7;
             transition: opacity 0.3s;
+          }
+          .icon {
+            font-size: 1.2rem;
+            color: var(--primaryText);
+            opacity: 0.3;
+            position: absolute;
+            right: 0.5rem;
+            bottom: 0.5rem;
           }
         }
         &.active {
@@ -116,7 +121,7 @@
       flex-direction: column;
       min-height: 300px;
       .texts {
-        margin-top: 4rem;
+        margin-top: 2rem;
         text-align: center;
         .main-title {
           font-size: 0.85rem;
@@ -132,10 +137,9 @@
         }
       }
       .teams {
-        margin: 0 0;
         .team {
-          width: 80px;
-          height: 80px;
+          width: 100px;
+          height: 100px;
         }
       }
     }

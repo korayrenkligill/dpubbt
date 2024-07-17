@@ -1,14 +1,23 @@
 import "../../../styles/components/MainPage/UserItem.scss";
 
-type Props = {};
+type Props = {
+  name: string;
+  surname: string;
+  role: string;
+  image?: string;
+};
 
-const UserItem = (props: Props) => {
+const UserItem = ({ name, surname, role, image }: Props) => {
   return (
     <div className="mainpage-user-item">
-      <img src="https://randomuser.me/api/portraits/women/79.jpg" alt="" />
+      {image ? (
+        <img src={image} alt="" />
+      ) : (
+        <div className="profile">{`${name[0]}${surname[0]}`}</div>
+      )}
       <div>
-        <b>Name Surname</b>
-        <span>authority</span>
+        <b>{`${name} ${surname}`}</b>
+        <span>{role}</span>
       </div>
     </div>
   );

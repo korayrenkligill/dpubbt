@@ -1,13 +1,13 @@
-import Header from "../../components/Header/Header";
-import AboutTeam from "../../components/AboutTeam/AboutTeam";
 import Slider from "react-slick";
-
 import { FaUsers } from "react-icons/fa6";
 import { MdWork } from "react-icons/md";
 import { IoCubeSharp } from "react-icons/io5";
 
-import "../../styles/pages/Global/AboutUs/AboutUs.scss";
+import Header from "../../components/Header/Header";
+import AboutTeam from "../../components/AboutTeam/AboutTeam";
 import AdminTools from "../../components/AdminTools";
+
+import "../../styles/pages/Global/AboutUs/AboutUs.scss";
 type Props = {};
 
 const AboutUs = (props: Props) => {

@@ -2,12 +2,28 @@ import Header from "../../components/Header/Header";
 import EventsContainer from "../../components/OurEvents/Events/EventsContainer";
 import Event from "../../components/OurEvents/Events/Event";
 import AdminTools from "../../components/AdminTools";
+import { motion } from "framer-motion";
 
 type Props = {};
 
+const container = {
+  hidden: {},
+  visible: {
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.2,
+    },
+  },
+};
+
 const OurEvents = (props: Props) => {
   return (
-    <div className="our-events">
+    <motion.div
+      className="our-events"
+      variants={container}
+      initial="hidden"
+      animate="visible"
+    >
       <Header
         message="✨ Birlikte eğlenelim!"
         title="Etkinliklerimiz ve Bilmemne"
@@ -41,7 +57,7 @@ const OurEvents = (props: Props) => {
         />
       </EventsContainer>
       <AdminTools pageName="events" />
-    </div>
+    </motion.div>
   );
 };
 
