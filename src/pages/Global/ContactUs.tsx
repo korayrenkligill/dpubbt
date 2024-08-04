@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/iframe-has-title */
 import Header from "../../components/Header/Header";
 import "../../styles/pages/Global/ContactUs/ContactUs.scss";
-import { FaPhone } from "react-icons/fa6";
+import { FaPhone, FaYoutube } from "react-icons/fa6";
 import { IoMail } from "react-icons/io5";
 import { AiFillInstagram } from "react-icons/ai";
 import AdminTools from "../../components/AdminTools";
 import ContactForm from "../../components/ContactUs/ContactForm";
+import { TbWorld } from "react-icons/tb";
 
 type Props = {};
 
@@ -45,6 +46,24 @@ const ContactUs = (props: Props) => {
             <div className="information">
               <b>Instagram</b>
               <p>@dpubbt</p>
+            </div>
+          </div>
+          <div className="contact-item">
+            <div className="icon">
+              <FaYoutube />
+            </div>
+            <div className="information">
+              <b>Youtube</b>
+              <p>dpubbt</p>
+            </div>
+          </div>
+          <div className="contact-item">
+            <div className="icon">
+              <TbWorld />
+            </div>
+            <div className="information">
+              <b>Website</b>
+              <p>dpubbt.com</p>
             </div>
           </div>
         </div>

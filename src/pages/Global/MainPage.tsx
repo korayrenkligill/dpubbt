@@ -28,7 +28,7 @@ const MainPage = (props: Props) => {
         title={t("mainpage.header.title")}
         description={t("mainpage.header.description")}
         buttonText={t("mainpage.header.button")}
-        image="https://i.ibb.co/PjxVCTW/main.png"
+        image="https://img.freepik.com/free-vector/hand-drawn-business-communication-concept_23-2149167947.jpg?t=st=1719887895~exp=1719891495~hmac=713db1698de4a9e5f1f67b79abce0cf07f6193791b2e0d1ea8a9ad61aa2bd98c&w=1380"
       />
       <motion.div
         className="bar"
