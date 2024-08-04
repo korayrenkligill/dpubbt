@@ -76,29 +76,62 @@ nav {
       }
     }
   }
-  .auth {
+  .auth.not-logged-in {
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    .login {
-      display: inline-block;
-      padding: 0 1rem;
-      color: var(--primary);
-      transition: color 0.3s;
-      &:hover {
-        color: var(--black);
+    .user-panel {
+      display: none;
+    }
+    .login-register {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .login {
+        display: inline-block;
+        padding: 0 1rem;
+        color: var(--primary);
+        transition: color 0.3s;
+        &:hover {
+          color: var(--black);
+        }
+      }
+      .register {
+        padding: 0.5rem 2rem;
+        border-radius: 0.5rem;
+        background-color: var(--primary);
+        color: var(--onPrimary);
+        transition: background-color 0.3s;
+        &:hover {
+          background-color: var(--black);
+        }
       }
     }
-    .register {
-      padding: 0.5rem 2rem;
-      border-radius: 0.5rem;
-      background-color: var(--primary);
-      color: var(--onPrimary);
-      transition: background-color 0.3s;
-      &:hover {
-        background-color: var(--black);
+  }
+  .auth.logged-in {
+    flex: 1;
+    .user-panel {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 0.5rem;
+      text-align: right;
+      .user-informations {
+        display: flex;
+        flex-direction: column;
+        gap: 0.2rem;
+        p {
+          font-size: 1rem;
+          line-height: 1rem;
+          font-weight: bold;
+        }
+        span {
+          font-size: 0.875rem;
+          line-height: 0.875rem;
+        }
       }
+    }
+    .login-register {
+      display: none;
     }
   }
 }
@@ -165,32 +198,67 @@ nav {
         }
       }
     }
-    .auth {
+    .auth.not-logged-in {
       flex: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: flex-end;
-      margin-top: auto;
-      gap: 1rem;
-      padding: 0.5rem 1rem;
+      .user-panel {
+        display: none;
+      }
+      .login-register {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-end;
+        margin-top: auto;
+        gap: 1rem;
+        padding: 0.5rem;
 
-      .login {
-        display: inline-block;
-        padding: 0.5rem 1rem;
-        color: var(--secondary);
-        transition: color 0.3s;
-        &:hover {
-          color: black;
+        .login {
+          display: inline-block;
+          padding: 0.5rem 1rem;
+          color: var(--secondary);
+          transition: color 0.3s;
+          &:hover {
+            color: black;
+          }
+        }
+        .register {
+          padding: 1rem;
+        }
+        div,
+        div * {
+          display: inline-block;
+          width: 100%;
         }
       }
-      .register {
-        padding: 1rem;
-      }
-      div,
-      div * {
-        display: inline-block;
+    }
+    .auth.logged-in {
+      flex: 1;
+      .user-panel {
+        padding: 0.5rem;
         width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 1rem;
+        text-align: left;
+        .user-informations {
+          display: flex;
+          flex-direction: column;
+          gap: 0.2rem;
+          order: 2;
+          p {
+            font-size: 1rem;
+            line-height: 1rem;
+            font-weight: bold;
+          }
+          span {
+            font-size: 0.875rem;
+            line-height: 0.875rem;
+          }
+        }
+      }
+      .login-register {
+        display: none;
       }
     }
   }

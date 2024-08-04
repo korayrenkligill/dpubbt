@@ -31,6 +31,7 @@ import { ThemeProvider } from "@emotion/react";
 import UserControl from "./components/UserControl";
 import { UserType } from "./types/User";
 import code from "./testEvent";
+import Profile from "./pages/Global/Profile";
 
 const router = createBrowserRouter([
   {
@@ -76,6 +77,10 @@ const router = createBrowserRouter([
           {
             path: "/register",
             element: <Register />,
+          },
+          {
+            path: "/profile/:id",
+            element: <Profile />,
           },
           {
             path: "/test",

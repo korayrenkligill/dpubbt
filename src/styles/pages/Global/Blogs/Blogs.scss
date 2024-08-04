@@ -7,12 +7,6 @@ section.blogs {
     grid-template-columns: 250px 1fr;
     gap: 1rem;
     margin-top: 3rem;
-
-    main.blogs {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 1rem;
-    }
   }
   .filterbar-button {
     display: none;

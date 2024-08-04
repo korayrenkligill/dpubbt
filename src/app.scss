@@ -26,6 +26,13 @@
   }
 }
 
+main.blogs,
+div.blogs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
 @media (min-width: 640px) {
   .custom-container {
     max-width: 640px;

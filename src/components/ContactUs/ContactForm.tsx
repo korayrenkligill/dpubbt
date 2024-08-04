@@ -7,21 +7,21 @@ const ContactForm = (props: Props) => {
     <form className="contact-form">
       <div className="double-input">
         <div className="input-container">
-          <label htmlFor="">İsim</label>
-          <input type="text" />
+          <label htmlFor="name">İsim</label>
+          <input id="name" type="text" />
         </div>
         <div className="input-container">
-          <label htmlFor="">Soyisim</label>
-          <input type="text" />
+          <label htmlFor="surname">Soyisim</label>
+          <input id="surname" type="text" />
         </div>
       </div>
       <div className="input-container">
-        <label htmlFor="">E-posta adresi</label>
-        <input type="text" />
+        <label htmlFor="mail">E-posta adresi</label>
+        <input id="mail" type="text" />
       </div>
       <div className="input-container">
-        <label htmlFor="">Mesaj</label>
-        <textarea name="" id="" rows={8}></textarea>
+        <label htmlFor="message">Mesaj</label>
+        <textarea id="message" rows={8}></textarea>
       </div>
       <button>Gönder</button>
     </form>

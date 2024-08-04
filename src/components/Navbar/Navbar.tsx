@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { NavigationItemType } from "../../types/Navigation";
 import { IoMenu, IoClose } from "react-icons/io5";
 import { motion } from "framer-motion";
@@ -7,6 +7,9 @@ import NavigationItems from "../../json/navigations.json";
 
 import "../../styles/components/Navbar/Navbar.scss";
 import { useCallback, useState } from "react";
+import { userAtom } from "../..";
+import { useAtomValue } from "jotai";
+import UserAvatar from "../UserAvatar/UserAvatar";
 
 type Props = {};
 
@@ -42,7 +45,10 @@ const NavigationItem = ({ item }: NavigationItemProps) => {
 };
 
 const Navbar = (props: Props) => {
+  const navigation = useNavigate();
+
   const [isOpen, setIsOpen] = useState(false);
+  const userRole = useAtomValue(userAtom);
 
   const changeNavbarState = useCallback(() => {
     setIsOpen(!isOpen);
@@ -65,17 +71,35 @@ const Navbar = (props: Props) => {
           <NavigationItem item={item} key={index} />
         ))}
       </ul>
-      <div className="auth" onClick={changeNavbarState}>
-        <motion.div variants={animatedItem}>
-          <Link to={"/login"} className="login">
-            Giriş Yap
-          </Link>
-        </motion.div>
-        <motion.div variants={animatedItem}>
-          <Link to={"/register"} className="register">
-            Kayıt Ol
-          </Link>
-        </motion.div>
+      <div className={`${userRole ? "logged-in" : "not-logged-in"} auth`}>
+        <div className="login-register" onClick={changeNavbarState}>
+          <motion.div variants={animatedItem}>
+            <Link to={"/login"} className="login">
+              Giriş Yap
+            </Link>
+          </motion.div>
+          <motion.div variants={animatedItem}>
+            <Link to={"/register"} className="register">
+              Kayıt Ol
+            </Link>
+          </motion.div>
+        </div>
+        <div className="user-panel">
+          <div
+            style={{ cursor: "pointer" }}
+            className="user-informations"
+            onClick={() => navigation("/profile/test")}
+          >
+            <p>Koray Renkligil</p>
+            <span>Admin</span>
+          </div>
+          <div
+            style={{ cursor: "pointer" }}
+            onClick={() => navigation("/profile/test")}
+          >
+            <UserAvatar name="Koray" surname="Renkligil" />
+          </div>
+        </div>
       </div>
     </motion.nav>
   );
