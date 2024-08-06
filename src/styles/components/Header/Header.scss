@@ -13,13 +13,21 @@
     justify-content: space-between;
     gap: 2rem;
     padding: 1rem;
+    .textsLoading {
+      flex: 1;
+      text-align: justify !important;
+      margin-right: 50%;
+      div {
+        width: 100%;
+      }
+    }
     .texts {
       display: flex;
       flex-direction: column;
       align-items: stretch;
       justify-content: center;
       gap: 0.3rem;
-      span {
+      .message {
         position: relative;
         display: inline-block;
         padding: 0.5rem 1rem;
@@ -137,6 +145,11 @@
       gap: 0;
       padding: 2rem 1rem;
       margin-top: calc(40px + 1rem);
+      .textsLoading {
+        width: 100%;
+        margin-top: 50%;
+        margin-right: 0;
+      }
       .texts {
         order: 2;
         align-items: center;
@@ -168,7 +181,7 @@
   .Header {
     .container {
       .texts {
-        span {
+        .message {
           font-size: 0.8rem;
         }
         h1 {

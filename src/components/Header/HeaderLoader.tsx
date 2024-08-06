@@ -1,13 +1,8 @@
+import { Skeleton } from "@mui/material";
 import "../../styles/components/Header/Header.scss";
 import { motion } from "framer-motion";
 
-type Props = {
-  message?: string;
-  title?: string;
-  description?: string;
-  buttonText?: string;
-  image?: string;
-};
+type Props = {};
 
 const container = {
   hidden: {},
@@ -27,32 +22,37 @@ const animatedItem = {
   },
 };
 
-const Header = ({ message, title, description, buttonText, image }: Props) => {
+const HeaderLoader = ({}: Props) => {
   return (
     <header className="Header">
       <div className="container custom-container ">
         <motion.div
-          className="texts"
+          className="texts textsLoading"
           variants={container}
           initial="hidden"
           animate="visible"
         >
-          <motion.span className="message" variants={animatedItem}>
-            {message}
-          </motion.span>
-          <motion.h1 variants={animatedItem}>{title}</motion.h1>
-          <motion.p variants={animatedItem}>{description}</motion.p>
-          {buttonText && (
-            <motion.button variants={animatedItem}>{buttonText}</motion.button>
-          )}
-        </motion.div>
-        <motion.div
-          className="image"
-          initial={{ x: 20, opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.2 }}
-        >
-          <img src={image} alt="" />
+          <motion.div variants={animatedItem}>
+            <Skeleton
+              variant="text"
+              sx={{ fontSize: window.innerWidth <= 1024 ? ".8rem" : ".9rem" }}
+            />
+          </motion.div>
+          <motion.div variants={animatedItem}>
+            <Skeleton
+              variant="text"
+              sx={{ fontSize: window.innerWidth <= 1024 ? "2rem" : "3rem" }}
+            />
+          </motion.div>
+          <motion.div variants={animatedItem}>
+            <Skeleton
+              variant="text"
+              sx={{ fontSize: window.innerWidth <= 1024 ? ".9rem" : "1rem" }}
+            />
+          </motion.div>
+          <motion.div variants={animatedItem}>
+            <Skeleton variant="rounded" width={160} height={45} />
+          </motion.div>
         </motion.div>
       </div>
       <img
@@ -79,4 +79,4 @@ const Header = ({ message, title, description, buttonText, image }: Props) => {
   );
 };
 
-export default Header;
+export default HeaderLoader;
