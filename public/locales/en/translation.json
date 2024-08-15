@@ -1,5 +1,29 @@
 {
-  "common.title": "Local Page Title",
-  "common.desc": "This is a local page description",
-  "common.welcome": "Welcome to the local page {{username}}"
+  "mainpage.header.message": "🌟 Welcome! We're connecting with technology here.",
+  "mainpage.header.title": "Computer and Informatics Community",
+  "mainpage.header.description": "If you're interested in technology, you're in the right place! Get ready to make amazing discoveries in the world of computers with BBT.",
+
+  "aboutus.header.message": "💬 Want to get to know us? Here's our story!",
+  "aboutus.header.title": "About Us",
+  "aboutus.header.description": "We are the most dynamic community at Kütahya Dumlupınar University. Our goal is to share knowledge in the field of computer and informatics and to grow together.",
+
+  "events.header.message": "🎉 Fun and learning together!",
+  "events.header.title": "Our Events",
+  "events.header.description": "From gamejams to hackathons, we are waiting for you with events where you can learn while having fun.",
+
+  "projects.header.message": "🚀 What we've done, what we're doing!",
+  "projects.header.title": "Projects",
+  "projects.header.description": "We share the projects developed by our members here. Get inspired and join us with your own project!",
+
+  "academy.header.message": "🎓 Ready to learn new things?",
+  "academy.header.title": "BBT Academy",
+  "academy.header.description": "We welcome everyone who is hungry for knowledge with our courses on computer sciences and the software world.",
+
+  "blog.header.message": "✏️ We share our thoughts!",
+  "blog.header.title": "Blog",
+  "blog.header.description": "We share our thoughts and experiences about technology, software, and more here.",
+
+  "contact.header.message": "📬 It's easy to reach us!",
+  "contact.header.title": "Contact",
+  "contact.header.description": "Got questions? Get in touch and connect with our community."
 }

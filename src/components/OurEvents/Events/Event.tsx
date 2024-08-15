@@ -9,7 +9,7 @@ type Props = {
   emoji?: string;
   backgroundColor?: string;
   status?: "completed" | "waiting" | "cancelled";
-  url: string;
+  url?: string;
 };
 
 const item = {
@@ -36,7 +36,11 @@ const Event = ({ title, date, emoji, backgroundColor, status, url }: Props) => {
       style={{
         backgroundColor: backgroundColor,
       }}
-      onClick={() => navigation(`/${url}`)}
+      onClick={() => {
+        if (!url) alert("bu etkinliğe ait aktif bir sayfa bulunmamakta");
+        else if (url.includes("http")) window.open(url, "_blank");
+        else navigation(`/${url}`);
+      }}
       variants={item}
     >
       <div

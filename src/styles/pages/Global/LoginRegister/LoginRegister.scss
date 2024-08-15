@@ -67,3 +67,9 @@
     }
   }
 }
+@media screen and (max-width: $screen_lg) {
+  .login-page,
+  .register-page {
+    margin-top: 60px;
+  }
+}

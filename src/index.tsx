@@ -43,7 +43,6 @@ root.render(
   <React.StrictMode>
     <Provider store={bbtStore}>
       <ThemeProvider theme={theme}>
-        {/* <RouterProvider router={router} fallbackElement={<>Loading...</>} /> */}
         <PageRoutes />
       </ThemeProvider>
     </Provider>

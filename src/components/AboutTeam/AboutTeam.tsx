@@ -10,43 +10,23 @@ const AboutTeam = ({ moreButton = false }: Props) => {
   const texts = [
     {
       title: "Bilgisayar ve Bilişim Topluluğu Nedir?",
-      description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel amet
-          minima neque distinctio quisquam? Excepturi temporibus perferendis
-          ullam, illum, obcaecati id repellat asperiores sint qui nihil ipsam
-          doloremque ipsa odit provident ab harum consectetur necessitatibus
-          iure molestias voluptate, repudiandae commodi!`,
+      description: `Dumlupınar Üniversitesi Bilgisayar Bilişim Topluluğu (BBT), teknoloji ve inovasyon alanında tutkulu bireylerden oluşan bir aile olarak bilgi ve deneyimlerini paylaşarak gelişimi desteklemektedir. Amacımız, üyelerimizi ve topluluğumuzu sektördeki en son trendlerle buluşturmak, yaratıcı projeler ve etkinliklerle bilgi birikimimizi artırmak ve hep birlikte büyümektir. Topluluğumuz, hem kişisel hem de profesyonel gelişim fırsatları sunarak, her adımda yanınızda olmaktadır`,
     },
     {
       title: "Akademi Takımı",
-      description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel amet
-          minima neque distinctio quisquam? Excepturi temporibus perferendis
-          ullam, illum, obcaecati id repellat asperiores sint qui nihil ipsam
-          doloremque ipsa odit provident ab harum consectetur necessitatibus
-          iure molestias voluptate, repudiandae commodi!`,
+      description: `Akademi Takımı, yazılım ve teknoloji alanında derin bilgiye sahip uzmanlardan oluşan, eğitim ve öğrenme süreçlerini yönlendiren bir gruptur. Bu ekip, katılımcılara en güncel teknolojik gelişmeleri öğretmek, uygulamalı dersler ve interaktif öğrenme deneyimleri sunmak için çalışır. Yazılım ve teknik beceriler üzerine odaklanan bu takım, üyelerimizin yetkinliklerini artırmak ve kariyerlerine yön vermek için titizlikle görev alır.`,
     },
     {
       title: "Pazarlama Takımı",
-      description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel amet
-          minima neque distinctio quisquam? Excepturi temporibus perferendis
-          ullam, illum, obcaecati id repellat asperiores sint qui nihil ipsam
-          doloremque ipsa odit provident ab harum consectetur necessitatibus
-          iure molestias voluptate, repudiandae commodi!`,
+      description: `Pazarlama Takımı, topluluğumuzun etkinliklerini ve projelerini tanıtmak için stratejik planlar geliştiren ve uygulayan bir ekipten oluşur. Bu takım, etkili pazarlama kampanyaları ile topluluğumuzun görünürlüğünü artırır, hedef kitlemize ulaşır ve topluluk ile ilgili bilgi ve fırsatları geniş bir kitleye ulaştırır. Yaratıcı ve yenilikçi yaklaşımlarla, etkinliklerimizi ve projelerimizi başarılı bir şekilde tanıtmaktadır.`,
     },
     {
       title: "Sosyal Medya Takımı",
-      description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel amet
-          minima neque distinctio quisquam? Excepturi temporibus perferendis
-          ullam, illum, obcaecati id repellat asperiores sint qui nihil ipsam
-          doloremque ipsa odit provident ab harum consectetur necessitatibus
-          iure molestias voluptate, repudiandae commodi!`,
+      description: `Sosyal Medya Takımı, topluluğumuzun dijital varlığını yönetmek ve etkileşim yaratmak için sorumlu olan yaratıcı bir ekipten oluşur. Tasarım ve içerik oluşturma konularında yetkin olan bu takım, sosyal medya platformlarında etkileyici paylaşımlar yaparak topluluğumuzun sesini duyurur. Görsel tasarımlar, paylaşımlar ve kampanyalar ile topluluk etkileşimini artırmak için sürekli olarak yenilikçi içerikler üretir.`,
     },
     {
       title: "Sponsorluk Takımı",
-      description: `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel amet
-          minima neque distinctio quisquam? Excepturi temporibus perferendis
-          ullam, illum, obcaecati id repellat asperiores sint qui nihil ipsam
-          doloremque ipsa odit provident ab harum consectetur necessitatibus
-          iure molestias voluptate, repudiandae commodi!`,
+      description: `Sponsorluk Takımı, etkinliklerimiz için gerekli olan finansal destek ve malzemeleri sağlamak için aktif olarak çalışan bir ekip olarak görev yapar. Sponsor arayışı, gerekli alet ve edevat temini, yiyecek ve içecek ihtiyaçlarını karşılama gibi görevleri üstlenen bu takım, etkinliklerimizin başarılı bir şekilde gerçekleşmesini sağlamak için geniş bir iletişim ağı kullanır. İletişim becerileri ve stratejik yaklaşımları ile, etkinliklerimiz için gerekli kaynakları temin eder ve sponsorluk ilişkilerini güçlendirir.`,
     },
   ];
 

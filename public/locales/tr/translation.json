@@ -1,5 +1,29 @@
 {
-  "common.title": "Yerel Sayfa Başlığı",
-  "common.desc": "Bu bir yerel sayfa açıklamasıdır",
-  "common.welcome": "Yerel sayfaya hoş geldin {{username}}"
+  "mainpage.header.message": "🌟 Hoş geldin! Burada teknolojiyle buluşuyoruz.",
+  "mainpage.header.title": "Bilgisayar ve Bilişim Topluluğu",
+  "mainpage.header.description": "Teknolojiye ilgi duyuyorsan doğru yerdesin! BBT ile birlikte bilgisayar dünyasında harika keşiflere çıkmaya hazır ol.",
+
+  "aboutus.header.message": "💬 Bizi tanımak ister misin? İşte hikayemiz!",
+  "aboutus.header.title": "Hakkımızda",
+  "aboutus.header.description": "Kütahya Dumlupınar Üniversitesi'nin en dinamik topluluğuyuz. Amacımız, bilgisayar ve bilişim alanında bilgiyi paylaşmak ve birlikte büyümek.",
+
+  "events.header.message": "🎉 Eğlence ve öğrenme bir arada!",
+  "events.header.title": "Etkinliklerimiz",
+  "events.header.description": "Gamejam’lerden hackathon’lara, öğrenirken eğleneceğin etkinliklerimizle seni bekliyoruz.",
+
+  "projects.header.message": "🚀 Neler yaptık, neler yapıyoruz!",
+  "projects.header.title": "Projeler",
+  "projects.header.description": "Üyelerimizin geliştirdiği projeleri burada paylaşıyoruz. İlham al ve kendi projenle aramıza katıl!",
+
+  "academy.header.message": "🎓 Yeni şeyler öğrenmeye var mısın?",
+  "academy.header.title": "BBT Akademi",
+  "academy.header.description": "Bilgisayar bilimleri ve yazılım dünyasına dair derslerimizle bilgiye aç olan herkesi bekliyoruz.",
+
+  "blog.header.message": "✏️ Düşüncelerimizi paylaşıyoruz!",
+  "blog.header.title": "Blog",
+  "blog.header.description": "Teknoloji, yazılım ve daha fazlası hakkında düşüncelerimizi ve deneyimlerimizi burada paylaşıyoruz.",
+
+  "contact.header.message": "📬 Bize ulaşmak çok kolay!",
+  "contact.header.title": "İletişim",
+  "contact.header.description": "Soruların mı var? İletişime geç ve topluluğumuzla bağlantı kur."
 }

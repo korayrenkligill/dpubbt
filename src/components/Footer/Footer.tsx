@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { Link } from "react-router-dom";
 import "../../styles/components/Footer/Footer.scss";
 import NavigationItems from "../../json/navigations.json";
@@ -13,7 +12,13 @@ import {
 import { IoLogoWhatsapp } from "react-icons/io";
 import { TbWorld } from "react-icons/tb";
 import { MdAlternateEmail } from "react-icons/md";
+import SponsorCarousel from "../SponsorCarousel";
 type Props = {};
+
+const sponsors = [
+  "https://dt2sdf0db8zob.cloudfront.net/wp-content/uploads/2019/08/guzel-hosting-logo-alt.webp",
+  "https://ugc.production.linktr.ee/6c4d55e9-fbc3-4ef2-aaed-88f207104674_Ads-z-tasar-m--1-.png",
+];
 
 const Footer = (props: Props) => {
   return (
@@ -21,34 +26,31 @@ const Footer = (props: Props) => {
       <div className="custom-container container">
         <div className="column column-1">
           <h2>Sosyal medyalarımız</h2>
-          {/* <div className="top">
-            <img
-              src="https://www.dpubbt.com/wp-content/uploads/2024/02/logo-bbt-2048x2048.png"
-              alt=""
-            />
-          </div> */}
           <div className="social-medias">
-            <a href="#">
+            <a href="https://www.instagram.com/dpubbt" target="_blank">
               <AiFillInstagram />
               <span>Instagram</span>
             </a>
-            <a href="#">
+            <a href="https://twitter.com/dpubbt43" target="_blank">
               <FaXTwitter />
               <span>X</span>
             </a>
-            <a href="#">
+            <a href="https://www.youtube.com/@dpubbt" target="_blank">
               <FaYoutube />
               <span>Youtube</span>
             </a>
-            <a href="#">
+            <a href="https://discord.gg/bTYpa6VcJE" target="_blank">
               <FaDiscord />
               <span>Discord</span>
             </a>
-            <a href="#">
+            <a href="https://linkedin.com/company/dpubbt" target="_blank">
               <FaLinkedinIn />
               <span>LinkedIn</span>
             </a>
-            <a href="#">
+            <a
+              href="https://chat.whatsapp.com/HCD5qjz01XyIbcNRMY8cFP"
+              target="_blank"
+            >
               <IoLogoWhatsapp />
               <span>Whatsapp</span>
             </a>
@@ -72,7 +74,7 @@ const Footer = (props: Props) => {
             43100 Kütahya Merkez/Kütahya
           </p>
           <div className="links">
-            <div className="link">
+            <a href="https://dpubbt.com" className="link">
               <div className="icon">
                 <TbWorld />
               </div>
@@ -80,19 +82,20 @@ const Footer = (props: Props) => {
                 <h3>Website</h3>
                 <p>dpubbt.com</p>
               </div>
-            </div>
-            <div className="link">
+            </a>
+            <a href="mailto:dpubilgisayarvebilisim@gmail.com" className="link">
               <div className="icon">
                 <MdAlternateEmail />
               </div>
               <div className="texts">
                 <h3>E-mail</h3>
-                <p>info@dpubbt.com</p>
+                <p>dpubilgisayarvebilisim@gmail.com</p>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
+      <SponsorCarousel sponsors={sponsors} />
       <div className="bottom-container">
         <p>
           © 2024 Kütahya Dumlupınar Üniversitesi Bilgisayar ve Bilişim

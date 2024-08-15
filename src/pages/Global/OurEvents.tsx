@@ -1,11 +1,13 @@
-import Header from "../../components/Header/Header";
+// import Header from "../../components/Header/Header";
 import EventsContainer from "../../components/OurEvents/Events/EventsContainer";
 import Event from "../../components/OurEvents/Events/Event";
 import AdminTools from "../../components/AdminTools";
 import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { lazy, Suspense, useEffect, useState } from "react";
 import { Skeleton } from "@mui/material";
 import HeaderLoader from "../../components/Header/HeaderLoader";
+import Header from "../../components/Header/Header";
+import { useTranslation } from "react-i18next";
 
 type Props = {};
 
@@ -20,12 +22,14 @@ const container = {
 };
 
 const OurEvents = (props: Props) => {
+  const { t } = useTranslation();
+
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 500);
   }, []);
 
   return (
@@ -39,10 +43,10 @@ const OurEvents = (props: Props) => {
         <HeaderLoader />
       ) : (
         <Header
-          message="✨ Birlikte eğlenelim!"
-          title="Etkinliklerimiz ve Bilmemne"
-          description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
-          image="https://img.freepik.com/free-vector/hand-drawn-people-jumping-illustration_23-2149083966.jpg?t=st=1719856686~exp=1719860286~hmac=c526dbe0b927dcf50f05653cf678a6f4a21f58143dd46e809501c96c4e1861e6&w=826"
+          message={t("events.header.message")}
+          title={t("events.header.title")}
+          description={t("events.header.description")}
+          image="/images/Header/etkinlik.svg"
         />
       )}
       <EventsContainer>
@@ -57,27 +61,53 @@ const OurEvents = (props: Props) => {
           <>
             <Event
               title="Game Jam 2024"
-              date="26/01/2024"
+              date="11/10/2024"
               emoji="🎮"
               backgroundColor="#a4aeeb"
-              status="cancelled"
-              url="event"
+              status="waiting"
+              url="https://gamejam2024.dpubbt.com/"
             />
             <Event
-              title="Hackathon 2024"
-              date="26/01/2024"
+              title="Hackathon 2023"
+              date="03/05/2023"
               emoji="💻"
-              backgroundColor="#26aeff"
-              status="waiting"
-              url="event"
+              backgroundColor="#BAE1FF"
+              status="completed"
+            />
+            <Event
+              title="Code & Design 2"
+              date="02/03/2024"
+              emoji="🎨"
+              backgroundColor="#F1E1D6"
+              status="completed"
+            />
+            <Event
+              title="Code & Design 1"
+              date="04/11/2024"
+              emoji="🎨"
+              backgroundColor="#F1E1D6"
+              status="completed"
             />
             <Event
               title="Game Jam 2023"
-              date="26/01/2023"
+              date="06/10/2024"
+              emoji="🎮"
+              backgroundColor="#a4aeeb"
+              status="completed"
+            />
+            <Event
+              title="Game Jam 2022"
+              date="13/05/2023"
+              emoji="🎮"
+              backgroundColor="#a4aeeb"
+              status="completed"
+            />
+            <Event
+              title="Bilişim ve Değişen Dünya"
+              date="26/01/2021"
               emoji="🙀"
               backgroundColor="#fcd53f"
               status="completed"
-              url="event"
             />
           </>
         )}

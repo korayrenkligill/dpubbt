@@ -2,8 +2,8 @@ import { GoDot } from "react-icons/go";
 import { LiaHashtagSolid } from "react-icons/lia";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { GoChevronRight } from "react-icons/go";
 import Header from "../../components/Header/Header";
 import AboutTeam from "../../components/AboutTeam/AboutTeam";
 import Event from "../../components/OurEvents/Events/Event";
@@ -12,24 +12,56 @@ import BlogListItem from "../../components/Blog/BlogListItem";
 import UserItem from "../../components/MainPage/UserItem/UserItem";
 import AdminTools from "../../components/AdminTools";
 import ContactForm from "../../components/ContactUs/ContactForm";
-import { GoChevronRight } from "react-icons/go";
 
 import "../../styles/pages/Global/MainPage/MainPage.scss";
+import { useEffect, useState } from "react";
+import HeaderLoader from "../../components/Header/HeaderLoader";
+import { Skeleton } from "@mui/material";
+import AboutTeamLoader from "../../components/AboutTeam/AboutTeamLoader";
+import InfiniteCarousel from "../../components/CaruselTest";
+
+// Bileşenleri tembel yükleme
 
 type Props = {};
 
 const MainPage = (props: Props) => {
   const { t } = useTranslation();
+  const navigation = useNavigate();
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+
+  const items = ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"];
   return (
     <main className="main">
-      <Header
-        message={t("mainpage.header.message")}
-        title={t("mainpage.header.title")}
-        description={t("mainpage.header.description")}
-        buttonText={t("mainpage.header.button")}
-        image="https://img.freepik.com/free-vector/hand-drawn-business-communication-concept_23-2149167947.jpg?t=st=1719887895~exp=1719891495~hmac=713db1698de4a9e5f1f67b79abce0cf07f6193791b2e0d1ea8a9ad61aa2bd98c&w=1380"
-      />
+      {loading ? (
+        <HeaderLoader />
+      ) : (
+        <Header
+          message={t("mainpage.header.message")}
+          title={t("mainpage.header.title")}
+          description={t("mainpage.header.description")}
+          buttonText={t("mainpage.header.button")}
+          image="/images/Header/anasayfa.svg"
+          buttonEvent={() => {
+            navigation("/contact-us");
+          }}
+        />
+      )}
+      {/*<h1>My Carousel</h1>*/}
+      {/* <InfiniteCarousel visibleItems={3}>
+        <div style={{ background: "red", height: "100px" }}>1</div>
+        <div style={{ background: "blue", height: "100px" }}>2</div>
+        <div style={{ background: "green", height: "100px" }}>3</div>
+        <div style={{ background: "yellow", height: "100px" }}>4</div>
+        <div style={{ background: "purple", height: "100px" }}>5</div>
+        <div style={{ background: "purple", height: "100px" }}>6</div>
+        <div style={{ background: "purple", height: "100px" }}>7</div>
+      </InfiniteCarousel> */}
       <motion.div
         className="bar"
         initial={{ opacity: 0 }}
@@ -37,144 +69,225 @@ const MainPage = (props: Props) => {
         transition={{ duration: 1 }}
       >
         <div className="custom-container">
-          <span className="bar_content">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industry's standard dummy text
-            ever since the 1500s
-          </span>
+          {loading ? (
+            <Skeleton variant="text" sx={{ fontSize: "1rem" }} />
+          ) : (
+            <span className="bar_content">
+              Bilgisayar ve Bilişim Topluluğu olarak, sizlere daha iyi bir
+              deneyim sunmak adına web sayfamızı yeniliyoruz. Kısa bir süre
+              içerisinde yeni ve geliştirilmiş içeriğimizle karşınızda olacağız.
+              Bizi takipte kalın!
+            </span>
+          )}
         </div>
       </motion.div>
+
       <div className="grid custom-container">
         <div className="content">
           <section className="lastest-events">
             <div className="container-title">
-              <div>
-                <h1 className="title-font">
-                  <LiaHashtagSolid /> Son etkinliklerimiz
-                </h1>
-                <p>
-                  <GoDot /> Lorem ipsum dolor sit amet.
-                </p>
-              </div>
-              <Link to="/our-events">
-                Dahası <GoChevronRight />
-              </Link>
+              {loading ? (
+                <div style={{ width: "100%" }}>
+                  <Skeleton variant="text" sx={{ fontSize: "1.5rem" }} />
+                  <Skeleton variant="text" sx={{ fontSize: ".5rem" }} />
+                </div>
+              ) : (
+                <>
+                  <div>
+                    <h1 className="title-font">
+                      <LiaHashtagSolid /> Son etkinliklerimiz
+                    </h1>
+                  </div>
+                  <Link to="/our-events">
+                    Dahası <GoChevronRight />
+                  </Link>
+                </>
+              )}
             </div>
             <div className="events-container">
-              <Event
-                title="Game Jam 2024"
-                date="26/01/2024"
-                emoji="🎮"
-                backgroundColor="#a4aeeb"
-                status="cancelled"
-                url="event"
-              />
-              <Event
-                title="Hackathon 2024"
-                date="26/01/2024"
-                emoji="💻"
-                backgroundColor="#26aeff"
-                status="waiting"
-                url="event"
-              />
-              <Event
-                title="Game Jam 2023"
-                date="26/01/2023"
-                emoji="🙀"
-                backgroundColor="#fcd53f"
-                status="completed"
-                url="event"
-              />
+              {loading ? (
+                <>
+                  <Skeleton variant="rounded" height={200} />
+                  <Skeleton variant="rounded" height={200} />
+                  <Skeleton variant="rounded" height={200} />
+                </>
+              ) : (
+                <>
+                  <Event
+                    title="Game Jam 2024"
+                    date="11/10/2024"
+                    emoji="🎮"
+                    backgroundColor="#a4aeeb"
+                    status="waiting"
+                    url="https://gamejam2024.dpubbt.com/"
+                  />
+                  <Event
+                    title="Hackathon 2023"
+                    date="03/05/2023"
+                    emoji="💻"
+                    backgroundColor="#BAE1FF"
+                    status="completed"
+                  />
+                  <Event
+                    title="Code & Design 2"
+                    date="02/03/2024"
+                    emoji="🎨"
+                    backgroundColor="#F1E1D6"
+                    status="completed"
+                  />
+                </>
+              )}
             </div>
           </section>
-          <AboutTeam moreButton />
+
           <section className="trend-lesson">
             <div className="container-title">
-              <div>
-                <h1 className="title-font">
-                  <LiaHashtagSolid /> Derslerimiz
-                </h1>
-                <p>
-                  <GoDot /> Lorem ipsum dolor sit amet.
-                </p>
-              </div>
-              <Link to="/bbt-academy">
-                Dahası <GoChevronRight />
-              </Link>
+              {loading ? (
+                <div style={{ width: "100%" }}>
+                  <Skeleton variant="text" sx={{ fontSize: "1.5rem" }} />
+                  <Skeleton variant="text" sx={{ fontSize: ".5rem" }} />
+                </div>
+              ) : (
+                <>
+                  <div>
+                    <h1 className="title-font">
+                      <LiaHashtagSolid /> Derslerimiz
+                    </h1>
+                  </div>
+                  <Link to="/bbt-academy">
+                    Dahası <GoChevronRight />
+                  </Link>
+                </>
+              )}
             </div>
             <div className="lesson-container">
-              <Lesson
-                image="https://i.ibb.co/f2FvnwL/lesson.png"
-                title="Full-stack Web Dersleri"
-                content=" Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Exercitationem totam asperiores, quod quisquam"
-                topics={["Konu 1", "Konu 2", "Konu 3"]}
-                totalHour={60}
-                lessonCount={10}
-              />
+              {loading ? (
+                <Skeleton variant="rounded" height={370} />
+              ) : (
+                <Lesson
+                  image="https://i.ibb.co/f2FvnwL/lesson.png"
+                  title="Full-stack Web Dersleri"
+                  content="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                          Exercitationem totam asperiores, quod quisquam"
+                  topics={["Konu 1", "Konu 2", "Konu 3"]}
+                  totalHour={60}
+                  lessonCount={10}
+                />
+              )}
             </div>
           </section>
+
+          {loading ? <AboutTeamLoader /> : <AboutTeam moreButton />}
+
           <section className="mainpage-contact">
             <div className="container-title">
-              <div>
-                <h1 className="title-font">
-                  <LiaHashtagSolid /> İletişim Formu
-                </h1>
-                <p>
-                  <GoDot /> Lorem ipsum dolor sit amet.
-                </p>
-              </div>
-              <Link to="/contact-us">
-                Dahası <GoChevronRight />
-              </Link>
+              {loading ? (
+                <div style={{ width: "100%" }}>
+                  <Skeleton variant="text" sx={{ fontSize: "1.5rem" }} />
+                  <Skeleton variant="text" sx={{ fontSize: ".5rem" }} />
+                </div>
+              ) : (
+                <>
+                  <div>
+                    <h1 className="title-font">
+                      <LiaHashtagSolid /> İletişim Formu
+                    </h1>
+                  </div>
+                  <Link to="/contact-us">
+                    Dahası <GoChevronRight />
+                  </Link>
+                </>
+              )}
             </div>
-            <ContactForm />
+            {loading ? (
+              <Skeleton variant="rounded" height={370} />
+            ) : (
+              <div>
+                <p className="preprod-text">Bu Bölüm Yakında Aktif Olacak!</p>
+                <ContactForm />
+              </div>
+            )}
           </section>
         </div>
+
         <div className="mainpage-sidebar">
           <section className="lastest-blog">
             <div className="container-title">
-              <h1 className="title-font">Son paylaşılan yazı</h1>
+              {loading ? (
+                <Skeleton variant="text" sx={{ fontSize: "1.5rem" }} />
+              ) : (
+                <h1 className="title-font">Son paylaşılan yazı</h1>
+              )}
             </div>
             <div className="blogs-container">
-              <BlogListItem
-                image="https://i.pinimg.com/564x/33/2a/41/332a411f1f8e157a95d1ea679a2077a8.jpg"
-                categories={["Category 1", "Category 2"]}
-                date="01/01/2024"
-                title="Lorem ipsum dolor sit amet consectetur."
-                content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi in
-          libero dolore, pariatur, nostrum suscipit cum mollitia recusandae
-          laudantium minus, amet nisi. Corrupti non maiores odit ipsa placeat,
-          perferendis excepturi, vitae officia obcaecati modi eveniet, totam
-          error repellendus nam iste. Velit quaerat recusandae nam quos quia
-          voluptas vitae officiis doloribus."
-              />
+              {loading ? (
+                <Skeleton variant="rounded" height={250} />
+              ) : (
+                <BlogListItem
+                  image="https://i.pinimg.com/564x/33/2a/41/332a411f1f8e157a95d1ea679a2077a8.jpg"
+                  categories={["Category 1", "Category 2"]}
+                  date="01/01/2024"
+                  title="Lorem ipsum dolor sit amet consectetur."
+                  content="Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                           Excepturi in libero dolore, pariatur, nostrum suscipit cum mollitia recusandae laudantium minus, amet nisi.
+                           Corrupti non maiores odit ipsa placeat, perferendis excepturi, vitae officia obcaecati modi eveniet,
+                           totam error repellendus nam iste. Velit quaerat recusandae nam quos quia voluptas vitae officiis doloribus."
+                />
+              )}
             </div>
           </section>
+
           <section className="lastest-users">
             <div className="container-title">
-              <h1 className="title-font">Son Üyeler</h1>
+              {loading ? (
+                <Skeleton variant="text" sx={{ fontSize: "1.5rem" }} />
+              ) : (
+                <h1 className="title-font">Son Üyeler</h1>
+              )}
             </div>
             <div className="users-container">
-              <UserItem
-                image="https://randomuser.me/api/portraits/women/43.jpg"
-                name="Beverley"
-                surname="Tucker"
-                role="Yönetici"
-              />
-              <UserItem name="Erika" surname="Richards" role="Yazar" />
-              <UserItem name="Dennis" surname="Harrison" role="Ekip Üyesi" />
-              <UserItem
-                image="https://randomuser.me/api/portraits/men/49.jpg"
-                name="Alvin"
-                surname="Harrison"
-                role="Üye"
-              />
-              <UserItem name="Patrick" surname="Lawson" role="Üye" />
+              {loading ? (
+                <>
+                  <Skeleton variant="rounded" height={60} />
+                  <Skeleton variant="rounded" height={60} />
+                  <Skeleton variant="rounded" height={60} />
+                  <Skeleton variant="rounded" height={60} />
+                  <Skeleton variant="rounded" height={60} />
+                </>
+              ) : (
+                <>
+                  <UserItem
+                    name="Kaan"
+                    surname="Özsavran"
+                    role="T. Yönetim Kurulu Üyesi"
+                  />
+                  <UserItem
+                    name="Koray"
+                    surname="Renkligil"
+                    role="T. Yönetim Kurulu Üyesi"
+                  />
+                  <UserItem
+                    name="Kübra"
+                    surname="Yeşil"
+                    role="Başkan Yardımcısı"
+                  />
+                  <UserItem
+                    name="Murat Han"
+                    surname="Kocaman"
+                    role="Topluluk Başkan Yardımcısı"
+                  />
+                  <UserItem
+                    name="Okan"
+                    surname="Alageyik"
+                    role="Topluluk Başkanı"
+                  />
+                </>
+              )}
             </div>
           </section>
         </div>
       </div>
+
       <AdminTools pageName="main" />
     </main>
   );

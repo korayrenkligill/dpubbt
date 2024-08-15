@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/iframe-has-title */
 import Header from "../../components/Header/Header";
 import "../../styles/pages/Global/ContactUs/ContactUs.scss";
 import { FaPhone, FaYoutube } from "react-icons/fa6";
@@ -7,17 +6,20 @@ import { AiFillInstagram } from "react-icons/ai";
 import AdminTools from "../../components/AdminTools";
 import ContactForm from "../../components/ContactUs/ContactForm";
 import { TbWorld } from "react-icons/tb";
+import { useTranslation } from "react-i18next";
 
 type Props = {};
 
 const ContactUs = (props: Props) => {
+  const { t } = useTranslation();
+
   return (
     <main className="contact-us">
       <Header
-        message="🫶 Seni dinliyorum"
-        title="İletişime Geç"
-        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
-        image="https://img.freepik.com/free-vector/organic-flat-man-customer-support_23-2148893295.jpg?t=st=1720020625~exp=1720024225~hmac=246ebc45799ba02921992458ae15bb4af6a3fbbccb147012aca3ce43b1fee23d&w=826"
+        message={t("contact.header.message")}
+        title={t("contact.header.title")}
+        description={t("contact.header.description")}
+        image="/images/Header/iletisim.svg"
       />
       <section className="informations-form custom-container">
         <div className="informations">
@@ -67,7 +69,10 @@ const ContactUs = (props: Props) => {
             </div>
           </div>
         </div>
-        <ContactForm />
+        <div>
+          <p className="preprod-text">Bu Bölüm Yakında Aktif Olacak!</p>
+          <ContactForm />
+        </div>
       </section>
       <section className="map custom-container">
         <iframe

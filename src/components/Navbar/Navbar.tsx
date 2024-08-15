@@ -6,10 +6,12 @@ import { motion } from "framer-motion";
 import NavigationItems from "../../json/navigations.json";
 
 import "../../styles/components/Navbar/Navbar.scss";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { userAtom } from "../..";
 import { useAtomValue } from "jotai";
 import UserAvatar from "../UserAvatar/UserAvatar";
+import SelectLanguage from "../SelectLanguage";
+import { Skeleton } from "@mui/material";
 
 type Props = {};
 
@@ -53,6 +55,7 @@ const Navbar = (props: Props) => {
   const changeNavbarState = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
+
   return (
     <motion.nav
       variants={container}
@@ -73,6 +76,7 @@ const Navbar = (props: Props) => {
       </ul>
       <div className={`${userRole ? "logged-in" : "not-logged-in"} auth`}>
         <div className="login-register" onClick={changeNavbarState}>
+          <SelectLanguage />
           <motion.div variants={animatedItem}>
             <Link to={"/login"} className="login">
               Giriş Yap

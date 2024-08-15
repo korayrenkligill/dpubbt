@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import TextFieldsIcon from "@mui/icons-material/TextFields";
 import ViewInArIcon from "@mui/icons-material/ViewInAr";
 import { SpeedDial, SpeedDialAction, SpeedDialIcon } from "@mui/material";

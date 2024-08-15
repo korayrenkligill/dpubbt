@@ -14,10 +14,9 @@ import AddBlog from "../../components/Blog/AddBlog";
 import AdminTools from "../../components/AdminTools";
 
 import "../../styles/pages/Global/Blogs/Blogs.scss";
+import { useTranslation } from "react-i18next";
 
 export const addBlogPageAtom = atom(false);
-
-type Props = {};
 
 const container = {
   hidden: {},
@@ -29,7 +28,11 @@ const container = {
   },
 };
 
+type Props = {};
+
 const Blogs = (props: Props) => {
+  const { t } = useTranslation();
+
   const sidebarRef = useRef<HTMLDivElement>(null);
   const { width } = useWindowSizes();
   const navigation = useNavigate();
@@ -107,10 +110,10 @@ const Blogs = (props: Props) => {
   return (
     <section className="blogs">
       <Header
-        message="💭 Bahsetmek istediğimiz konular!"
-        title="Blog yazıları"
-        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
-        image="https://img.freepik.com/premium-vector/laptop-coffee-with-mail-notification-love-sign_76326-32.jpg?w=826"
+        message={t("blog.header.message")}
+        title={t("blog.header.title")}
+        description={t("blog.header.description")}
+        image="/images/Header/blog.svg"
       />
       <div className="custom-container content">
         {width < 1025 ? (

@@ -36,6 +36,7 @@ const Register = (props: Props) => {
       <motion.header className="logo" variants={animatedItem}>
         <img src="/images/logo-bbt.png" alt="" />
       </motion.header>
+      <p className="preprod-text">Bu Bölüm Yakında Aktif Olacak!</p>
       <form>
         <div className="double-input">
           <motion.div variants={animatedItem}>

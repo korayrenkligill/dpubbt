@@ -40,6 +40,7 @@ const Login = (props: Props) => {
       <motion.header className="logo" variants={animatedItem}>
         <img src="/images/logo-bbt.png" alt="" />
       </motion.header>
+      <p className="preprod-text">Bu Bölüm Yakında Aktif Olacak!</p>
       <form>
         <motion.div variants={animatedItem}>
           <TextField
@@ -84,7 +85,7 @@ const Login = (props: Props) => {
             Kayıt Ol
           </Button>
         </motion.div>
-        <motion.div variants={animatedItem}>
+        {/* <motion.div variants={animatedItem}>
           <Button
             variant="contained"
             color="primary"
@@ -110,7 +111,7 @@ const Login = (props: Props) => {
           >
             (Test) Admin
           </Button>
-        </motion.div>
+        </motion.div> */}
       </div>
       <AdminTools pageName="login" />
     </motion.main>

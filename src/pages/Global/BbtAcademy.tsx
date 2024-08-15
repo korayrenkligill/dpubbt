@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import AdminTools from "../../components/AdminTools";
 import Lesson from "../../components/BbtAcademy/Lesson";
 import Header from "../../components/Header/Header";
@@ -7,13 +8,15 @@ import "../../styles/pages/Global/BbtAcademy/BbtAcademy.scss";
 type Props = {};
 
 const BbtAcademy = (props: Props) => {
+  const { t } = useTranslation();
+
   return (
     <div className="bbt-academy">
       <Header
-        message="🎓 Sizin için hazırladıklarımız"
-        title="BBT Akademi"
-        description="Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been"
-        image="https://img.freepik.com/free-vector/gradient-poetry-illustration_52683-81904.jpg?t=st=1720028604~exp=1720032204~hmac=2bd0439b05ef5186d026dbf0b839e5174ac3baa5eb0b894a90bceddfeba87418&w=1380"
+        message={t("academy.header.message")}
+        title={t("academy.header.title")}
+        description={t("academy.header.description")}
+        image="/images/Header/akademi.svg"
       />
       <main className="lessons custom-container">
         <Lesson

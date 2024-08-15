@@ -3,10 +3,10 @@ footer {
   box-shadow: 0 -4px 6px -1px rgb(0 0 0 / 0.05),
     0 -2px 4px -2px rgb(0 0 0 / 0.05);
   margin-top: 5rem;
+  padding-top: 3rem;
   .container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    padding: 3rem 0;
     gap: 1rem;
     .column {
       padding: 1rem;
@@ -76,6 +76,7 @@ footer {
         display: inline-flex;
         align-items: center;
         gap: 0.3rem;
+        word-break: break-all;
         .icon {
           display: inline-flex;
           align-items: center;

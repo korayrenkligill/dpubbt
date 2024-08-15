@@ -28,6 +28,12 @@ const Lesson = ({
       style={{
         backgroundImage: 'url("/images/academyBackground.png")',
       }}
+      onClick={() => {
+        window.open(
+          "https://youtu.be/4bLG3hMYwAc?si=1CYeIPxrMIe9HgCU",
+          "_blank"
+        );
+      }}
     >
       <img src={image} alt="" />
       <div className="details">
